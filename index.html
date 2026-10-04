@@ -616,8 +616,164 @@ button {
     }
 
 }
+/* =========================
+   ДЕЙСТВИЯ С НОМЕРОМ
+========================= */
 
-</style>
+.hidden {
+    display: none !important;
+}
+
+.result-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.take-btn,
+.sell-btn {
+    padding: 15px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 900;
+    transition: .12s;
+}
+
+.take-btn:active,
+.sell-btn:active {
+    transform: scale(.96);
+}
+
+.take-btn {
+    background: #1c2833;
+    border: 1px solid #344553;
+}
+
+.sell-btn {
+    background: #193022;
+    color: #55e685;
+    border: 1px solid #28563a;
+}
+
+
+/* =========================
+   БОЛЕЕ РЕАЛИСТИЧНЫЙ НОМЕР
+========================= */
+
+.plate {
+    position: relative;
+    min-width: 275px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f8f8f8 50%,
+            #e8e8e8 100%
+        );
+
+    border: 3px solid #111;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 3px 0 #555,
+        0 7px 0 #111,
+        0 16px 30px rgba(0,0,0,.48);
+
+    transform:
+        perspective(500px)
+        rotateX(1deg);
+}
+
+.plate::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 3px;
+
+    background:
+        rgba(255,255,255,.95);
+
+    pointer-events: none;
+}
+
+.plate::after {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    right: 5px;
+    bottom: 4px;
+
+    height: 2px;
+
+    background:
+        rgba(0,0,0,.16);
+
+    pointer-events: none;
+}
+
+.plate-main {
+    position: relative;
+    z-index: 2;
+
+    font-family:
+        Arial Black,
+        Arial,
+        sans-serif;
+
+    font-weight: 900;
+
+    color: #080808;
+
+    text-shadow:
+        0 1px 0 #fff;
+
+    letter-spacing: 1px;
+}
+
+.plate-region {
+    position: relative;
+    z-index: 2;
+
+    color: #111;
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.03),
+            rgba(255,255,255,.5)
+        );
+}
+
+.plate-rus {
+    position: relative;
+    z-index: 2;
+
+    color: #111;
+
+    background:
+        rgba(255,255,255,.25);
+}
+
+.flag {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.25);
+
+    border-radius: 1px;
+}
+
 
 </head>
 
@@ -786,7 +942,12 @@ let rolls =
             "nomera_rolls"
         )
     ) || 0;
-
+let currentNumber =
+    JSON.parse(
+        localStorage.getItem(
+            "nomera_current"
+        ) || "null"
+    );
 
 let storage =
     JSON.parse(
@@ -901,8 +1062,12 @@ function save() {
         JSON.stringify(usedPromos)
     );
 
-}
+    localStorage.setItem(
+        "nomera_current",
+        JSON.stringify(currentNumber)
+    );
 
+}
 
 /* =========================
    ДЕНЬГИ
@@ -1322,7 +1487,13 @@ function showGame() {
         .getElementById("storageQuick")
         .onclick = () =>
             navigate("storage");
+document
+    .getElementById("takeButton")
+    .onclick = takeCurrentNumber;
 
+document
+    .getElementById("sellButton")
+    .onclick = sellCurrentNumber;
 
     document
         .getElementById("promoQuick")
@@ -1468,22 +1639,20 @@ function roll() {
                     button.textContent =
                         "🎰 КРУТИТЬ";
 
+currentNumber = {
+    main: n.main,
+    region: n.region,
+    rarity: r,
+    price: price
+};
 
-                    window.currentNumber = {
+const actions = document.getElementById(
+    "resultActions"
+);
 
-                        main:
-                            n.main,
-
-                        region:
-                            n.region,
-
-                        rarity:
-                            r,
-
-                        price:
-                            price
-
-                    };
+if (actions) {
+    actions.classList.remove("hidden");
+}
 
 
                     save();
@@ -2074,7 +2243,83 @@ document
 updateBalance();
 
 showGame();
+function takeCurrentNumber() {
 
+    if (!currentNumber) {
+        showToast("❌ Сначала крутань номер");
+        return;
+    }
+
+    storage.push({
+        main: currentNumber.main,
+        region: currentNumber.region,
+        rarity: currentNumber.rarity,
+        price: currentNumber.price
+    });
+
+    currentNumber = null;
+
+    save();
+    updateBalance();
+
+    const actions = document.getElementById(
+        "resultActions"
+    );
+
+    if (actions) {
+        actions.classList.add("hidden");
+    }
+
+    showToast(
+        "📦 Номер добавлен в хранилище!"
+    );
+}
+
+
+function sellCurrentNumber() {
+
+    if (!currentNumber) {
+        showToast("❌ Нет номера для продажи");
+        return;
+    }
+
+    balance += currentNumber.price;
+
+    const soldPrice = currentNumber.price;
+
+    currentNumber = null;
+
+    save();
+    updateBalance();
+
+    const actions = document.getElementById(
+        "resultActions"
+    );
+
+    if (actions) {
+        actions.classList.add("hidden");
+    }
+
+    showToast(
+        "💵 Продано за " + money(soldPrice)
+    );
+}
+
+
+document
+    .getElementById("takeButton")
+    .addEventListener(
+        "click",
+        takeCurrentNumber
+    );
+
+
+document
+    .getElementById("sellButton")
+    .addEventListener(
+        "click",
+        sellCurrentNumber
+    );
 </script>
 
 </body>
