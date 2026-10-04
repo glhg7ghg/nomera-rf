@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     >
 
-    <meta
-        name="theme-color"
-        content="#0b0c0f"
-    >
+    <meta name="theme-color" content="#0c0d10">
 
     <title>Номера РФ</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <style>
-
         * {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
@@ -32,13 +26,12 @@
             padding: 0;
             width: 100%;
             min-height: 100%;
-            background: #0b0c0f;
-            color: #ffffff;
+            background: #0c0d10;
+            color: #fff;
             font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
-            min-height: 100vh;
             overflow-x: hidden;
             overscroll-behavior: none;
         }
@@ -50,6 +43,7 @@
 
         button {
             border: 0;
+            outline: 0;
             cursor: pointer;
             color: inherit;
             touch-action: manipulation;
@@ -60,19 +54,17 @@
             max-width: 560px;
             min-height: 100vh;
             margin: 0 auto;
+            padding-bottom: 95px;
             background:
                 radial-gradient(
-                    circle at 50% -10%,
-                    rgba(74, 148, 255, 0.10),
+                    circle at 50% -8%,
+                    rgba(76, 150, 255, 0.12),
                     transparent 34%
                 ),
-                #0b0c0f;
-            padding-bottom: calc(92px + env(safe-area-inset-bottom));
+                #0c0d10;
         }
 
-        /* =========================
-           TOP BAR
-        ========================= */
+        /* TOP */
 
         .topbar {
             position: sticky;
@@ -84,48 +76,49 @@
             gap: 10px;
 
             padding:
-                calc(11px + env(safe-area-inset-top))
+                calc(10px + env(safe-area-inset-top))
                 14px
-                11px;
+                10px;
 
-            background: rgba(11,12,15,.95);
-            border-bottom: 1px solid rgba(255,255,255,.06);
-
-            backdrop-filter: blur(15px);
+            background: rgba(12, 13, 16, 0.96);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
         }
 
         .brand {
+            min-width: 0;
+            flex: 1;
+
             display: flex;
             align-items: center;
             gap: 9px;
-            min-width: 0;
-            flex: 1;
         }
 
         .brand-icon {
             width: 40px;
             height: 40px;
-            border-radius: 12px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
+            border-radius: 12px;
             background: #171a20;
             border: 1px solid rgba(255,255,255,.07);
 
-            font-size: 20px;
+            font-size: 19px;
+            font-weight: 900;
         }
 
-        .brand-name {
+        .brand-title {
             font-size: 15px;
             font-weight: 900;
-            letter-spacing: .3px;
+            letter-spacing: .4px;
         }
 
-        .brand-desc {
-            margin-top: 3px;
-            color: #737b87;
+        .brand-subtitle {
+            margin-top: 2px;
+            color: #737b86;
             font-size: 10px;
         }
 
@@ -133,32 +126,29 @@
             padding: 9px 11px;
             border-radius: 12px;
 
-            background: #142219;
-            border: 1px solid rgba(79,224,132,.16);
+            background: #14231a;
+            border: 1px solid rgba(84, 230, 139, .16);
 
-            color: #5ce58d;
+            color: #58e88e;
             font-size: 12px;
             font-weight: 900;
-
             white-space: nowrap;
         }
 
-        /* =========================
-           CONTENT
-        ========================= */
+        /* CONTENT */
 
         .content {
             padding: 18px 14px;
         }
 
         .page {
-            animation: pageIn .18s ease;
+            animation: fadeIn .16s ease;
         }
 
-        @keyframes pageIn {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(6px);
+                transform: translateY(5px);
             }
 
             to {
@@ -167,67 +157,63 @@
             }
         }
 
-        .page-title {
-            font-size: 24px;
+        .title {
+            font-size: 25px;
             font-weight: 900;
-            letter-spacing: -.5px;
+            letter-spacing: -.4px;
         }
 
-        .page-subtitle {
+        .subtitle {
             margin-top: 6px;
-            color: #7d8591;
+            color: #7d8590;
             font-size: 11px;
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
-        /* =========================
-           GAME CARD
-        ========================= */
+        /* MAIN CARD */
 
-        .game-card {
+        .card {
             margin-top: 16px;
-            padding: 17px;
+            padding: 16px;
 
-            border-radius: 23px;
+            border-radius: 22px;
 
             background:
                 linear-gradient(
                     180deg,
-                    #16191f 0%,
-                    #111318 100%
+                    #171a20 0%,
+                    #111419 100%
                 );
 
             border: 1px solid rgba(255,255,255,.07);
 
             box-shadow:
-                0 18px 45px rgba(0,0,0,.26);
+                0 18px 45px rgba(0,0,0,.3);
         }
 
-        .small-label {
-            color: #777f8a;
+        .eyebrow {
+            color: #727a86;
             font-size: 9px;
-            font-weight: 800;
-            text-transform: uppercase;
+            font-weight: 900;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* =========================
-           REALISTIC PLATE
-        ========================= */
+        /* PLATE */
 
         .plate-area {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
 
-            min-height: 145px;
-            padding: 24px 4px;
+            min-height: 165px;
+            padding: 25px 0;
         }
 
         .plate {
             position: relative;
 
-            width: min(100%, 405px);
+            width: min(100%, 410px);
             aspect-ratio: 520 / 112;
 
             display: flex;
@@ -238,9 +224,9 @@
             background:
                 linear-gradient(
                     180deg,
-                    #ffffff 0%,
+                    #fff 0%,
                     #f7f7f7 52%,
-                    #e9e9e9 100%
+                    #e7e7e7 100%
                 );
 
             border: 3px solid #111;
@@ -248,23 +234,23 @@
 
             box-shadow:
                 inset 0 1px 0 rgba(255,255,255,.95),
-                inset 0 -2px 3px rgba(0,0,0,.16),
-                0 2px 0 #6c6c6c,
+                inset 0 -2px 3px rgba(0,0,0,.12),
+                0 2px 0 #777,
                 0 5px 0 #111,
-                0 15px 28px rgba(0,0,0,.42);
+                0 15px 28px rgba(0,0,0,.45);
         }
 
         .plate::before {
             content: "";
 
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
             right: 0;
 
-            height: 4px;
+            height: 3px;
 
-            background: rgba(255,255,255,.8);
+            background: rgba(255,255,255,.9);
 
             pointer-events: none;
         }
@@ -276,18 +262,14 @@
             align-items: center;
             justify-content: center;
 
-            padding-left: 8px;
-            padding-right: 4px;
-
-            color: #060606;
+            color: #050505;
 
             font-family:
                 Arial Black,
                 Arial,
-                Helvetica,
                 sans-serif;
 
-            font-size: clamp(31px, 8vw, 49px);
+            font-size: clamp(31px, 8vw, 48px);
             font-weight: 900;
 
             letter-spacing: 1px;
@@ -296,7 +278,7 @@
             white-space: nowrap;
 
             text-shadow:
-                0 1px 0 #ffffff;
+                0 1px 0 #fff;
         }
 
         .plate-region {
@@ -307,36 +289,33 @@
             align-items: center;
             justify-content: center;
 
-            border-left: 2px solid #202020;
+            border-left: 2px solid #222;
 
             color: #111;
-
             font-size: clamp(17px, 4vw, 24px);
             font-weight: 900;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(0,0,0,.025),
-                    rgba(255,255,255,.5)
+                    rgba(0,0,0,.02),
+                    rgba(255,255,255,.45)
                 );
         }
 
         .plate-country {
-            width: 13%;
-            min-width: 43px;
+            width: 14%;
+            min-width: 44px;
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
             gap: 3px;
 
-            border-left: 1px solid #444;
+            border-left: 1px solid #333;
 
             color: #111;
-
             font-size: 8px;
             font-weight: 900;
         }
@@ -348,9 +327,9 @@
             background:
                 linear-gradient(
                     to bottom,
-                    #ffffff 0 33%,
-                    #4f72ad 33% 66%,
-                    #d85a5a 66% 100%
+                    #fff 0 33%,
+                    #4d71ac 33% 66%,
+                    #d85858 66% 100%
                 );
 
             border: 1px solid #999;
@@ -360,9 +339,7 @@
                 0 1px 2px rgba(0,0,0,.25);
         }
 
-        /* =========================
-           META
-        ========================= */
+        /* META */
 
         .meta {
             display: grid;
@@ -371,15 +348,16 @@
         }
 
         .meta-box {
-            padding: 12px 13px;
+            padding: 12px;
+
             border-radius: 14px;
 
             background: #111419;
             border: 1px solid rgba(255,255,255,.06);
         }
 
-        .meta-title {
-            color: #737c88;
+        .meta-label {
+            color: #727b87;
             font-size: 9px;
         }
 
@@ -390,7 +368,7 @@
         }
 
         .price {
-            color: #5ce58d;
+            color: #58e88e;
         }
 
         .common {
@@ -398,24 +376,22 @@
         }
 
         .rare {
-            color: #55adff;
+            color: #5bb0ff;
         }
 
         .epic {
-            color: #aa7bff;
+            color: #a879ff;
         }
 
         .legendary {
-            color: #ffd15b;
+            color: #ffd35e;
         }
 
         .secret {
-            color: #ff83c0;
+            color: #ff83c1;
         }
 
-        /* =========================
-           MAIN BUTTON
-        ========================= */
+        /* ROLL */
 
         .roll-button {
             width: 100%;
@@ -428,16 +404,15 @@
             background:
                 linear-gradient(
                     180deg,
-                    #3fa8ff 0%,
-                    #2d91df 100%
+                    #3da7fa,
+                    #2a90df
                 );
 
             box-shadow:
-                0 10px 25px rgba(47,149,226,.18);
+                0 10px 25px rgba(44,147,224,.17);
 
             font-size: 17px;
             font-weight: 900;
-            letter-spacing: .3px;
         }
 
         .roll-button:active {
@@ -445,84 +420,80 @@
         }
 
         .roll-button:disabled {
-            opacity: .65;
+            opacity: .6;
         }
 
         .roll-cost {
             margin-top: 7px;
+
             text-align: center;
 
-            color: #707883;
+            color: #6e7782;
             font-size: 9px;
         }
 
-        /* =========================
-           TAKE / SELL
-        ========================= */
+        /* ACTIONS */
 
         .result-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 9px;
-
             margin-top: 11px;
         }
 
         .result-button {
-            min-height: 55px;
+            min-height: 56px;
             border-radius: 15px;
 
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 900;
         }
 
-        .take-button {
+        .take {
             background:
                 linear-gradient(
                     180deg,
-                    #29343d,
-                    #202930
+                    #2c3944,
+                    #202a32
                 );
 
-            border: 1px solid #3a4852;
+            border: 1px solid #40515d;
         }
 
-        .sell-button {
+        .sell {
             background:
                 linear-gradient(
                     180deg,
-                    #255438,
-                    #193c28
+                    #255238,
+                    #193d27
                 );
 
-            color: #62ec92;
+            color: #62ed95;
 
-            border: 1px solid #36744c;
+            border: 1px solid #39784e;
         }
 
         .hidden {
             display: none !important;
         }
 
-        /* =========================
-           QUICK ACTIONS
-        ========================= */
+        /* QUICK */
 
-        .section-title {
-            margin: 20px 3px 9px;
+        .section {
+            margin: 21px 3px 9px;
 
             font-size: 14px;
             font-weight: 900;
         }
 
-        .quick-grid {
+        .quick {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 9px;
         }
 
         .quick-button {
-            min-height: 78px;
+            min-height: 80px;
 
             padding: 14px;
 
@@ -544,31 +515,25 @@
 
         .quick-title {
             margin-top: 7px;
-
             font-size: 13px;
             font-weight: 900;
         }
 
         .quick-text {
             margin-top: 4px;
-
-            color: #717a86;
-
+            color: #707985;
             font-size: 9px;
-            line-height: 1.35;
         }
 
-        /* =========================
-           STORAGE
-        ========================= */
+        /* STORAGE */
 
-        .storage-list {
+        .list {
             display: grid;
             gap: 9px;
             margin-top: 16px;
         }
 
-        .storage-item {
+        .item {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -582,31 +547,30 @@
             border: 1px solid rgba(255,255,255,.06);
         }
 
-        .storage-number {
+        .item-number {
             font-size: 17px;
             font-weight: 900;
             letter-spacing: .5px;
         }
 
-        .storage-rarity {
+        .item-rarity {
             margin-top: 4px;
             font-size: 10px;
         }
 
-        .storage-price {
+        .item-price {
             margin-top: 4px;
-            color: #5ce58d;
+            color: #58e88e;
             font-size: 11px;
             font-weight: 900;
         }
 
-        .storage-sell {
+        .item-sell {
             padding: 10px 12px;
             border-radius: 11px;
 
             background: #1a3022;
-
-            color: #5ce58d;
+            color: #58e88e;
 
             font-size: 10px;
             font-weight: 900;
@@ -614,17 +578,14 @@
 
         .empty {
             margin-top: 16px;
-
             padding: 42px 20px;
 
             border-radius: 17px;
-
-            border: 1px dashed #2a2e35;
+            border: 1px dashed #292e36;
 
             text-align: center;
 
-            color: #737c88;
-
+            color: #747d88;
             font-size: 11px;
             line-height: 1.5;
         }
@@ -634,9 +595,7 @@
             font-size: 33px;
         }
 
-        /* =========================
-           TOP
-        ========================= */
+        /* TOP */
 
         .top-list {
             display: grid;
@@ -666,7 +625,6 @@
         .top-place {
             width: 25px;
             text-align: center;
-            font-size: 14px;
             font-weight: 900;
         }
 
@@ -676,18 +634,15 @@
         }
 
         .top-money {
-            color: #5ce58d;
+            color: #58e88e;
             font-size: 11px;
             font-weight: 900;
         }
 
-        /* =========================
-           PROFILE
-        ========================= */
+        /* PROFILE */
 
         .profile-card {
             margin-top: 16px;
-
             padding: 16px;
 
             border-radius: 19px;
@@ -714,7 +669,7 @@
 
             background: #222832;
 
-            font-size: 23px;
+            font-size: 22px;
             font-weight: 900;
         }
 
@@ -723,21 +678,22 @@
             font-weight: 900;
         }
 
-        .profile-username {
+        .profile-user {
             margin-top: 3px;
-            color: #757f8c;
+            color: #727c87;
             font-size: 10px;
         }
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 7px;
             margin-top: 14px;
         }
 
         .stat {
-            padding: 11px 5px;
+            padding: 11px 4px;
+
             border-radius: 13px;
 
             background: #101318;
@@ -752,26 +708,24 @@
 
         .stat-name {
             margin-top: 4px;
-            color: #6e7782;
+            color: #6d7681;
             font-size: 9px;
         }
 
-        /* =========================
-           BOTTOM NAV
-        ========================= */
+        /* BOTTOM NAV */
 
         .bottom-nav {
             position: fixed;
             left: 50%;
             bottom: 0;
-            z-index: 60;
+            z-index: 70;
 
             transform: translateX(-50%);
 
-            width: min(560px, 100%);
+            width: min(560px,100%);
 
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4,1fr);
             gap: 4px;
 
             padding:
@@ -798,7 +752,7 @@
 
             background: transparent;
 
-            color: #6e7784;
+            color: #6d7682;
 
             font-size: 9px;
             font-weight: 800;
@@ -806,7 +760,7 @@
 
         .nav-button.active {
             background: #181d23;
-            color: #ffffff;
+            color: #fff;
         }
 
         .nav-icon {
@@ -814,9 +768,7 @@
             line-height: 1;
         }
 
-        /* =========================
-           TOAST
-        ========================= */
+        /* TOAST */
 
         .toast {
             position: fixed;
@@ -824,36 +776,34 @@
             bottom: calc(83px + env(safe-area-inset-bottom));
             z-index: 100;
 
-            transform: translate(-50%, 15px);
-
-            max-width: calc(100% - 30px);
+            transform: translate(-50%,15px);
 
             padding: 11px 14px;
 
             border-radius: 12px;
 
-            background: #21262d;
+            background: #22272e;
             border: 1px solid rgba(255,255,255,.08);
+
+            color: #fff;
 
             font-size: 10px;
             font-weight: 800;
-
-            white-space: nowrap;
 
             opacity: 0;
             pointer-events: none;
 
             transition: .2s;
+
+            white-space: nowrap;
         }
 
         .toast.show {
             opacity: 1;
-            transform: translate(-50%, 0);
+            transform: translate(-50%,0);
         }
 
-        /* =========================
-           MODAL
-        ========================= */
+        /* PROMO */
 
         .modal {
             position: fixed;
@@ -871,7 +821,7 @@
         .modal-bg {
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,.72);
+            background: rgba(0,0,0,.7);
         }
 
         .modal-box {
@@ -880,19 +830,21 @@
             width: 100%;
             max-width: 560px;
 
-            padding: 20px 15px calc(18px + env(safe-area-inset-bottom));
+            padding:
+                20px
+                15px
+                calc(18px + env(safe-area-inset-bottom));
 
             border-radius: 22px 22px 0 0;
 
             background: #161a20;
-
             border-top: 1px solid rgba(255,255,255,.08);
         }
 
         .modal-close {
             position: absolute;
             top: 10px;
-            right: 11px;
+            right: 10px;
 
             width: 31px;
             height: 31px;
@@ -900,7 +852,6 @@
             border-radius: 10px;
 
             background: #242a31;
-
             color: #8c949e;
         }
 
@@ -915,37 +866,49 @@
             font-size: 10px;
         }
 
-        .modal-input {
+        .promo-input {
             width: 100%;
 
             margin-top: 14px;
-
             padding: 14px;
 
             border-radius: 13px;
-
-            background: #0d1014;
-
             border: 1px solid rgba(255,255,255,.08);
 
+            background: #0d1014;
             color: white;
 
             outline: none;
         }
 
-        .modal-button {
+        .promo-submit {
             width: 100%;
 
             margin-top: 10px;
-
             padding: 15px;
 
             border-radius: 14px;
 
-            background: #369df2;
+            background: #389cf0;
 
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 900;
+        }
+
+        /* SPIN */
+
+        .spinning {
+            animation: spinPlate .08s infinite alternate;
+        }
+
+        @keyframes spinPlate {
+            from {
+                transform: rotate(-1deg) scale(1);
+            }
+
+            to {
+                transform: rotate(1deg) scale(1.035);
+            }
         }
 
         @media (max-width: 380px) {
@@ -960,27 +923,21 @@
             }
 
             .plate-country {
-                min-width: 38px;
+                min-width: 39px;
             }
 
-            .quick-grid {
+            .quick {
                 grid-template-columns: 1fr;
             }
 
         }
 
     </style>
-
 </head>
-
 
 <body>
 
 <div class="app">
-
-    <!-- =========================
-         TOP
-    ========================= -->
 
     <header class="topbar">
 
@@ -992,18 +949,20 @@
 
             <div>
 
-                <div class="brand-name">
+                <div class="brand-title">
                     НОМЕРА РФ
                 </div>
 
-                <div class="brand-desc" id="userGreeting">
-                    Собирай редкие номера
+                <div
+                    class="brand-subtitle"
+                    id="greeting"
+                >
+                    Коллекционируй номера
                 </div>
 
             </div>
 
         </div>
-
 
         <button
             class="balance-button"
@@ -1019,19 +978,11 @@
     </header>
 
 
-    <!-- =========================
-         CONTENT
-    ========================= -->
-
     <main
         class="content"
         id="content"
     ></main>
 
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
 
     <nav class="bottom-nav">
 
@@ -1040,64 +991,45 @@
             data-page="game"
             type="button"
         >
-            <div class="nav-icon">
-                🎰
-            </div>
+            <div class="nav-icon">🎰</div>
             Игра
         </button>
-
 
         <button
             class="nav-button"
             data-page="storage"
             type="button"
         >
-            <div class="nav-icon">
-                📦
-            </div>
-            Хранилище
+            <div class="nav-icon">📦</div>
+            Номера
         </button>
-
 
         <button
             class="nav-button"
             data-page="top"
             type="button"
         >
-            <div class="nav-icon">
-                🏆
-            </div>
+            <div class="nav-icon">🏆</div>
             Топ
         </button>
-
 
         <button
             class="nav-button"
             data-page="profile"
             type="button"
         >
-            <div class="nav-icon">
-                👤
-            </div>
+            <div class="nav-icon">👤</div>
             Профиль
         </button>
 
     </nav>
 
 
-    <!-- =========================
-         TOAST
-    ========================= -->
-
     <div
         class="toast"
         id="toast"
     ></div>
 
-
-    <!-- =========================
-         PROMO MODAL
-    ========================= -->
 
     <div
         class="modal hidden"
@@ -1106,9 +1038,8 @@
 
         <div
             class="modal-bg"
-            id="promoBackground"
+            id="promoBg"
         ></div>
-
 
         <div class="modal-box">
 
@@ -1120,27 +1051,23 @@
                 ✕
             </button>
 
-
             <div class="modal-title">
                 🎟 Промокод
             </div>
 
-
             <div class="modal-description">
-                Введи код и получи бонус.
+                Введи код для получения бонуса.
             </div>
 
-
             <input
-                class="modal-input"
+                class="promo-input"
                 id="promoInput"
                 placeholder="Введите промокод"
                 autocomplete="off"
             >
 
-
             <button
-                class="modal-button"
+                class="promo-submit"
                 id="promoSubmit"
                 type="button"
             >
@@ -1156,10 +1083,6 @@
 
 <script>
 
-/* =========================
-   TELEGRAM
-========================= */
-
 const tg =
     window.Telegram &&
     window.Telegram.WebApp
@@ -1174,22 +1097,15 @@ if (tg) {
     tg.expand();
 
     try {
-
-        tg.setHeaderColor(
-            "#0b0c0f"
-        );
-
-        tg.setBackgroundColor(
-            "#0b0c0f"
-        );
-
-    } catch (error) {}
+        tg.setHeaderColor("#0c0d10");
+        tg.setBackgroundColor("#0c0d10");
+    } catch (e) {}
 
 }
 
 
 /* =========================
-   CONSTANTS
+   DATA
 ========================= */
 
 const LETTERS =
@@ -1205,29 +1121,27 @@ const REGIONS = [
     "21","22","23","24","25",
     "26","27","28","29","30",
     "31","32","33","34","35",
-    "36","37","38","39","40",
-    "41","42","43","44","45",
-    "46","47","48","49","50",
-    "51","52","53","54","55",
-    "56","57","58","59","60",
-    "61","62","63","64","65",
-    "66","67","68","69","70",
-    "71","72","73","74","75",
+    "36","37","38","39",
+    "40","41","42","43","44","45",
+    "46","47","48","49",
+    "50","51","52","53","54","55",
+    "56","57","58","59",
+    "60","61","62","63","64","65",
+    "66","67","68","69",
+    "70","71","72","73","74","75",
     "76","77","78","79",
-    "80","81","82","83","84",
-    "85","86","87","88","89",
-    "90","91","92","93","94",
-    "95","96","97","98","99",
-    "102","116","121","122",
-    "123","124","125","126",
-    "134","136","138","142",
-    "147","150","152","154",
-    "156","159","161","163",
-    "164","165","166","167",
-    "169","173","174","176",
-    "177","178","180","181",
-    "183","184","185","186",
-    "190","193","196","197",
+    "80","81","82","83","84","85",
+    "86","87","88","89",
+    "90","91","92","93","94","95",
+    "96","97","98","99",
+    "102","116","121","122","123",
+    "124","125","126","134","136",
+    "138","142","147","150","152",
+    "154","156","159","161","163",
+    "164","165","166","167","169",
+    "173","174","176","177","178",
+    "180","181","183","184","185",
+    "186","190","193","196","197",
     "198","199"
 
 ];
@@ -1237,37 +1151,37 @@ const RARITIES = [
 
     {
         name: "Обычный",
+        className: "common",
         min: 200,
-        max: 1700,
-        className: "common"
+        max: 1700
     },
 
     {
         name: "Редкий",
+        className: "rare",
         min: 1999,
-        max: 7999,
-        className: "rare"
+        max: 7999
     },
 
     {
         name: "Эпический",
+        className: "epic",
         min: 7999,
-        max: 14999,
-        className: "epic"
+        max: 14999
     },
 
     {
         name: "Легендарный",
+        className: "legendary",
         min: 69999,
-        max: 149999,
-        className: "legendary"
+        max: 149999
     },
 
     {
         name: "Секретный",
+        className: "secret",
         min: 200999,
-        max: 899999,
-        className: "secret"
+        max: 899999
     }
 
 ];
@@ -1286,8 +1200,7 @@ const PROMOS = {
 };
 
 
-const ROLL_COST =
-    9999;
+const ROLL_PRICE = 9999;
 
 
 /* =========================
@@ -1310,48 +1223,51 @@ let rolls =
     ) || 0;
 
 
-let storage =
-    readStorage();
+let storage = [];
 
+try {
 
-let usedPromos =
-    JSON.parse(
-        localStorage.getItem(
-            "nomera_promos"
-        ) || "[]"
-    );
+    storage =
+        JSON.parse(
+            localStorage.getItem(
+                "nomera_storage"
+            ) || "[]"
+        );
 
-
-let currentNumber =
-    JSON.parse(
-        localStorage.getItem(
-            "nomera_current"
-        ) || "null"
-    );
-
-
-function readStorage() {
-
-    try {
-
-        const value =
-            JSON.parse(
-                localStorage.getItem(
-                    "nomera_storage"
-                ) || "[]"
-            );
-
-        return Array.isArray(value)
-            ? value
-            : [];
-
-    } catch (error) {
-
-        return [];
-
+    if (!Array.isArray(storage)) {
+        storage = [];
     }
 
+} catch (e) {
+
+    storage = [];
+
 }
+
+
+let usedPromos = [];
+
+try {
+
+    usedPromos =
+        JSON.parse(
+            localStorage.getItem(
+                "nomera_promos"
+            ) || "[]"
+        );
+
+    if (!Array.isArray(usedPromos)) {
+        usedPromos = [];
+    }
+
+} catch (e) {
+
+    usedPromos = [];
+
+}
+
+
+let currentNumber = null;
 
 
 /* =========================
@@ -1388,9 +1304,9 @@ const promoInput =
     );
 
 
-const userGreeting =
+const greeting =
     document.getElementById(
-        "userGreeting"
+        "greeting"
     );
 
 
@@ -1403,13 +1319,14 @@ function money(value) {
     return (
         Math.round(value)
             .toLocaleString("ru-RU")
-        + " ₽"
+        +
+        " ₽"
     );
 
 }
 
 
-function randomItem(array) {
+function randomFrom(array) {
 
     return array[
         Math.floor(
@@ -1423,7 +1340,7 @@ function randomItem(array) {
 
 function randomLetter() {
 
-    return randomItem(
+    return randomFrom(
         LETTERS.split("")
     );
 
@@ -1441,45 +1358,14 @@ function randomDigit() {
 }
 
 
-function randomDigits(count) {
-
-    let result = "";
-
-    for (
-        let i = 0;
-        i < count;
-        i++
-    ) {
-
-        result += randomDigit();
-
-    }
-
-    return result;
-
-}
-
-
 function randomRegion() {
 
-    return randomItem(
+    return randomFrom(
         REGIONS
     );
 
 }
 
-
-function updateBalance() {
-
-    balanceText.textContent =
-        money(balance);
-
-}
-
-
-/* =========================
-   SAVE
-========================= */
 
 function save() {
 
@@ -1503,19 +1389,18 @@ function save() {
         JSON.stringify(usedPromos)
     );
 
-    localStorage.setItem(
-        "nomera_current",
-        JSON.stringify(currentNumber)
-    );
+}
+
+
+function updateBalance() {
+
+    balanceText.textContent =
+        money(balance);
 
 }
 
 
-/* =========================
-   TOAST
-========================= */
-
-function showToast(message) {
+function notify(message) {
 
     toast.textContent =
         message;
@@ -1525,10 +1410,10 @@ function showToast(message) {
     );
 
     clearTimeout(
-        window.toastTimer
+        window.__toast
     );
 
-    window.toastTimer =
+    window.__toast =
         setTimeout(
             () => {
 
@@ -1552,9 +1437,35 @@ function showToast(message) {
                     "success"
                 );
 
-        } catch (error) {}
+        } catch (e) {}
 
     }
+
+}
+
+
+/* =========================
+   USER
+========================= */
+
+if (
+    tg &&
+    tg.initDataUnsafe &&
+    tg.initDataUnsafe.user
+) {
+
+    const user =
+        tg.initDataUnsafe.user;
+
+    const name =
+        user.first_name ||
+        user.username ||
+        "Игрок";
+
+    greeting.textContent =
+        "Привет, " +
+        name +
+        "!";
 
 }
 
@@ -1565,43 +1476,27 @@ function showToast(message) {
 
 function getRarity() {
 
-    const chance =
+    const n =
         Math.random() * 100;
 
 
-    if (
-        chance < 0.3
-    ) {
-
+    if (n < .3) {
         return RARITIES[4];
-
     }
 
 
-    if (
-        chance < 4
-    ) {
-
+    if (n < 4) {
         return RARITIES[3];
-
     }
 
 
-    if (
-        chance < 20
-    ) {
-
+    if (n < 20) {
         return RARITIES[2];
-
     }
 
 
-    if (
-        chance < 45
-    ) {
-
+    if (n < 45) {
         return RARITIES[1];
-
     }
 
 
@@ -1611,7 +1506,7 @@ function getRarity() {
 
 
 /* =========================
-   NUMBER GENERATION
+   GENERATE NUMBER
 ========================= */
 
 function generateNumber(
@@ -1625,10 +1520,8 @@ function generateNumber(
     let d1 =
         randomDigit();
 
-
     let d2 =
         randomDigit();
-
 
     let d3 =
         randomDigit();
@@ -1637,12 +1530,9 @@ function generateNumber(
     let l2 =
         randomLetter();
 
-
     let l3 =
         randomLetter();
 
-
-    /* РЕДКИЙ */
 
     if (
         rarity.name ===
@@ -1650,7 +1540,8 @@ function generateNumber(
     ) {
 
         if (
-            Math.random() < .5
+            Math.random() <
+            .5
         ) {
 
             d2 = d1;
@@ -1664,8 +1555,6 @@ function generateNumber(
     }
 
 
-    /* ЭПИЧЕСКИЙ */
-
     if (
         rarity.name ===
         "Эпический"
@@ -1677,8 +1566,6 @@ function generateNumber(
 
     }
 
-
-    /* ЛЕГЕНДАРНЫЙ */
 
     if (
         rarity.name ===
@@ -1698,7 +1585,7 @@ function generateNumber(
 
 
         const combo =
-            randomItem(
+            randomFrom(
                 combos
             );
 
@@ -1725,8 +1612,6 @@ function generateNumber(
     }
 
 
-    /* СЕКРЕТНЫЙ */
-
     if (
         rarity.name ===
         "Секретный"
@@ -1742,21 +1627,18 @@ function generateNumber(
 
         const specialRegions =
             REGIONS.filter(
-                value =>
-
+                r =>
                     (
-                        value.length === 2 &&
-                        value[0] === value[1]
+                        r.length === 2 &&
+                        r[0] === r[1]
                     )
-
                     ||
-
                     (
-                        value.length === 3 &&
+                        r.length === 3 &&
                         (
-                            value[0] === value[1] ||
-                            value[1] === value[2] ||
-                            value[0] === value[2]
+                            r[0] === r[1] ||
+                            r[1] === r[2] ||
+                            r[0] === r[2]
                         )
                     )
             );
@@ -1774,7 +1656,7 @@ function generateNumber(
 
             region:
                 specialRegions.length
-                    ? randomItem(
+                    ? randomFrom(
                         specialRegions
                     )
                     : "77"
@@ -1819,21 +1701,21 @@ function calculatePrice(
                 rarity.min +
                 1
             )
-        ) +
+        )
+        +
         rarity.min;
 
 
     const digits =
-        number.main
-            .slice(1,4);
+        number.main.slice(
+            1,
+            4
+        );
 
 
     const letters =
-        number.main
-            .charAt(0)
-        +
-        number.main
-            .slice(4,6);
+        number.main.charAt(0) +
+        number.main.slice(4,6);
 
 
     if (
@@ -1868,10 +1750,19 @@ function calculatePrice(
             "678",
             "789",
             "012"
-
         ].includes(
             digits
         )
+    ) {
+
+        price += 5000;
+
+    }
+
+
+    if (
+        digits[0] ===
+        digits[2]
     ) {
 
         price += 5000;
@@ -1885,7 +1776,7 @@ function calculatePrice(
 
 
 /* =========================
-   PLATE HTML
+   PLATE
 ========================= */
 
 function plateHTML(
@@ -1920,58 +1811,51 @@ function plateHTML(
 
 
 /* =========================
-   HOME
+   GAME PAGE
 ========================= */
 
 function showGame() {
 
-    let current =
-        currentNumber;
+    const display =
+        currentNumber || {
 
+            main:
+                "А123ВС",
 
-    if (
-        !current
-    ) {
+            region:
+                "77",
 
-        current = {
+            rarity:
+                RARITIES[0],
 
-            main: "А123ВС",
-
-            region: "77",
-
-            rarity: RARITIES[0],
-
-            price: 1250
+            price:
+                1250
 
         };
 
-    }
 
-
-    const actionVisible =
-        Boolean(
-            currentNumber
-        );
+    const showActions =
+        currentNumber !== null;
 
 
     content.innerHTML = `
 
         <div class="page">
 
-            <div class="page-title">
-                Лови свой номер
+            <div class="title">
+                Лови номер
             </div>
 
-            <div class="page-subtitle">
-                Крути номера и собирай
-                самые редкие комбинации.
+            <div class="subtitle">
+                Крути и собирай редкие
+                комбинации российских номеров.
             </div>
 
 
-            <section class="game-card">
+            <section class="card">
 
-                <div class="small-label">
-                    НОМЕР
+                <div class="eyebrow">
+                    Результат
                 </div>
 
 
@@ -1980,7 +1864,7 @@ function showGame() {
                     id="plateArea"
                 >
 
-                    ${plateHTML(current)}
+                    ${plateHTML(display)}
 
                 </div>
 
@@ -1989,20 +1873,20 @@ function showGame() {
 
                     <div class="meta-box">
 
-                        <div class="meta-title">
+                        <div class="meta-label">
                             Редкость
                         </div>
 
                         <div
                             class="
                                 meta-value
-                                ${current.rarity.className}
+                                ${display.rarity.className}
                             "
                             id="rarityValue"
                         >
 
                             ⭐
-                            ${current.rarity.name}
+                            ${display.rarity.name}
 
                         </div>
 
@@ -2011,20 +1895,17 @@ function showGame() {
 
                     <div class="meta-box">
 
-                        <div class="meta-title">
-                            Цена
+                        <div class="meta-label">
+                            Стоимость
                         </div>
 
                         <div
-                            class="
-                                meta-value
-                                price
-                            "
+                            class="meta-value price"
                             id="priceValue"
                         >
 
                             ${money(
-                                current.price
+                                display.price
                             )}
 
                         </div>
@@ -2046,15 +1927,15 @@ function showGame() {
 
 
             <div class="roll-cost">
-                Стоимость крутки:
-                ${money(ROLL_COST)}
+                Стоимость:
+                ${money(ROLL_PRICE)}
             </div>
 
 
             <div
                 class="
                     result-actions
-                    ${actionVisible ? "" : "hidden"}
+                    ${showActions ? "" : "hidden"}
                 "
                 id="resultActions"
             >
@@ -2062,7 +1943,7 @@ function showGame() {
                 <button
                     class="
                         result-button
-                        take-button
+                        take
                     "
                     id="takeButton"
                     type="button"
@@ -2074,7 +1955,7 @@ function showGame() {
                 <button
                     class="
                         result-button
-                        sell-button
+                        sell
                     "
                     id="sellButton"
                     type="button"
@@ -2085,16 +1966,16 @@ function showGame() {
             </div>
 
 
-            <div class="section-title">
-                Действия
+            <div class="section">
+                Быстрые действия
             </div>
 
 
-            <div class="quick-grid">
+            <div class="quick">
 
                 <button
                     class="quick-button"
-                    id="storageQuick"
+                    id="storageButton"
                     type="button"
                 >
 
@@ -2103,11 +1984,11 @@ function showGame() {
                     </div>
 
                     <div class="quick-title">
-                        Хранилище
+                        Мои номера
                     </div>
 
                     <div class="quick-text">
-                        Твоя коллекция номеров
+                        Открыть коллекцию
                     </div>
 
                 </button>
@@ -2115,7 +1996,7 @@ function showGame() {
 
                 <button
                     class="quick-button"
-                    id="promoQuick"
+                    id="promoButton"
                     type="button"
                 >
 
@@ -2166,7 +2047,7 @@ function showGame() {
 
     document
         .getElementById(
-            "storageQuick"
+            "storageButton"
         )
         .onclick =
             () =>
@@ -2177,7 +2058,7 @@ function showGame() {
 
     document
         .getElementById(
-            "promoQuick"
+            "promoButton"
         )
         .onclick =
             openPromo;
@@ -2192,10 +2073,11 @@ function showGame() {
 function roll() {
 
     if (
-        balance < ROLL_COST
+        balance <
+        ROLL_PRICE
     ) {
 
-        showToast(
+        notify(
             "❌ Недостаточно денег"
         );
 
@@ -2205,8 +2087,7 @@ function roll() {
 
 
     balance -=
-        ROLL_COST;
-
+        ROLL_PRICE;
 
     rolls++;
 
@@ -2236,38 +2117,30 @@ function roll() {
         "🎰 КРУТИМ...";
 
 
-    let step = 0;
+    let count = 0;
 
 
     const timer =
         setInterval(
             () => {
 
-                const fakeRarity =
-                    RARITIES[
-                        Math.floor(
-                            Math.random() * 3
-                        )
-                    ];
-
-
-                const fakeNumber =
+                const fake =
                     generateNumber(
-                        fakeRarity
+                        RARITIES[0]
                     );
 
 
                 area.innerHTML =
                     plateHTML(
-                        fakeNumber
+                        fake
                     );
 
 
-                step++;
+                count++;
 
 
                 if (
-                    step >= 12
+                    count >= 12
                 ) {
 
                     clearInterval(
@@ -2275,33 +2148,33 @@ function roll() {
                     );
 
 
-                    const rarity =
+                    const r =
                         getRarity();
 
 
-                    const number =
+                    const n =
                         generateNumber(
-                            rarity
+                            r
                         );
 
 
                     const price =
                         calculatePrice(
-                            number,
-                            rarity
+                            n,
+                            r
                         );
 
 
                     currentNumber = {
 
                         main:
-                            number.main,
+                            n.main,
 
                         region:
-                            number.region,
+                            n.region,
 
                         rarity:
-                            rarity,
+                            r,
 
                         price:
                             price
@@ -2321,7 +2194,7 @@ function roll() {
                         )
                         .className =
                             "meta-value " +
-                            rarity.className;
+                            r.className;
 
 
                     document
@@ -2330,7 +2203,7 @@ function roll() {
                         )
                         .textContent =
                             "⭐ " +
-                            rarity.name;
+                            r.name;
 
 
                     document
@@ -2338,16 +2211,15 @@ function roll() {
                             "priceValue"
                         )
                         .textContent =
-                            money(price);
+                            money(
+                                price
+                            );
 
 
-                    const actions =
-                        document.getElementById(
+                    document
+                        .getElementById(
                             "resultActions"
-                        );
-
-
-                    actions
+                        )
                         .classList
                         .remove(
                             "hidden"
@@ -2365,9 +2237,9 @@ function roll() {
                     save();
 
 
-                    showToast(
+                    notify(
                         "🔥 " +
-                        rarity.name
+                        r.name
                     );
 
                 }
@@ -2389,7 +2261,7 @@ function takeCurrentNumber() {
         !currentNumber
     ) {
 
-        showToast(
+        notify(
             "❌ Нет номера"
         );
 
@@ -2422,25 +2294,11 @@ function takeCurrentNumber() {
     save();
 
 
-    const actions =
-        document.getElementById(
-            "resultActions"
-        );
+    showGame();
 
 
-    if (actions) {
-
-        actions
-            .classList
-            .add(
-                "hidden"
-            );
-
-    }
-
-
-    showToast(
-        "📦 Номер добавлен!"
+    notify(
+        "📦 Номер добавлен в коллекцию!"
     );
 
 }
@@ -2456,7 +2314,7 @@ function sellCurrentNumber() {
         !currentNumber
     ) {
 
-        showToast(
+        notify(
             "❌ Нет номера"
         );
 
@@ -2482,24 +2340,10 @@ function sellCurrentNumber() {
     updateBalance();
 
 
-    const actions =
-        document.getElementById(
-            "resultActions"
-        );
+    showGame();
 
 
-    if (actions) {
-
-        actions
-            .classList
-            .add(
-                "hidden"
-            );
-
-    }
-
-
-    showToast(
+    notify(
         "💵 +" +
         money(price)
     );
@@ -2513,132 +2357,122 @@ function sellCurrentNumber() {
 
 function showStorage() {
 
-    let html = `
+    content.innerHTML = `
 
         <div class="page">
 
-            <div class="page-title">
-                Хранилище
+            <div class="title">
+                📦 Мои номера
             </div>
 
-            <div class="page-subtitle">
-                Здесь хранятся твои номера.
+            <div class="subtitle">
+                Твоя коллекция сохранённых номеров.
             </div>
 
-    `;
 
+            ${
+                storage.length === 0
 
-    if (
-        storage.length === 0
-    ) {
+                ?
 
-        html += `
+                `
+                    <div class="empty">
 
-            <div class="empty">
-
-                <div class="empty-icon">
-                    📦
-                </div>
-
-                Хранилище пустое.
-
-                <br>
-
-                Крути номер и нажми
-                «Забрать».
-
-            </div>
-
-        `;
-
-    } else {
-
-        html += `
-            <div class="storage-list">
-        `;
-
-
-        storage
-            .slice()
-            .reverse()
-            .forEach(
-                (item, index) => {
-
-                    html += `
-
-                        <div class="storage-item">
-
-                            <div>
-
-                                <div class="storage-number">
-
-                                    ${item.main}
-                                    ${item.region}
-
-                                </div>
-
-
-                                <div
-                                    class="
-                                        storage-rarity
-                                        ${item.rarity.className}
-                                    "
-                                >
-
-                                    ⭐
-                                    ${item.rarity.name}
-
-                                </div>
-
-
-                                <div class="storage-price">
-
-                                    ${money(
-                                        item.price
-                                    )}
-
-                                </div>
-
-                            </div>
-
-
-                            <button
-                                class="storage-sell"
-                                type="button"
-                                data-index="${index}"
-                            >
-
-                                💵 Продать
-
-                            </button>
-
+                        <div class="empty-icon">
+                            📦
                         </div>
 
-                    `;
+                        Коллекция пока пустая.
 
-                }
-            );
+                        <br>
+
+                        Крути номер и
+                        нажимай «Забрать».
+
+                    </div>
+                `
+
+                :
+
+                `
+                    <div class="list">
+
+                        ${
+                            storage
+                                .slice()
+                                .reverse()
+                                .map(
+                                    (
+                                        item,
+                                        index
+                                    ) => `
+
+                                        <div class="item">
+
+                                            <div>
+
+                                                <div class="item-number">
+
+                                                    ${item.main}
+                                                    ${item.region}
+
+                                                </div>
 
 
-        html += `
-            </div>
-        `;
+                                                <div
+                                                    class="
+                                                        item-rarity
+                                                        ${item.rarity.className}
+                                                    "
+                                                >
 
-    }
+                                                    ⭐
+                                                    ${item.rarity.name}
+
+                                                </div>
 
 
-    html += `
+                                                <div class="item-price">
+
+                                                    ${money(
+                                                        item.price
+                                                    )}
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <button
+                                                class="item-sell"
+                                                data-index="${index}"
+                                                type="button"
+                                            >
+
+                                                💵 Продать
+
+                                            </button>
+
+                                        </div>
+
+                                    `
+                                )
+                                .join("")
+                        }
+
+                    </div>
+                `
+
+            }
+
         </div>
+
     `;
-
-
-    content.innerHTML =
-        html;
 
 
     document
         .querySelectorAll(
-            ".storage-sell"
+            ".item-sell"
         )
         .forEach(
             button => {
@@ -2646,7 +2480,7 @@ function showStorage() {
                 button.onclick =
                     () => {
 
-                        const reversedIndex =
+                        const reverseIndex =
                             Number(
                                 button.dataset.index
                             );
@@ -2655,7 +2489,7 @@ function showStorage() {
                         const realIndex =
                             storage.length -
                             1 -
-                            reversedIndex;
+                            reverseIndex;
 
 
                         const item =
@@ -2683,11 +2517,10 @@ function showStorage() {
 
                         updateBalance();
 
-
                         showStorage();
 
 
-                        showToast(
+                        notify(
                             "💵 Номер продан"
                         );
 
@@ -2709,23 +2542,23 @@ function showTop() {
 
         ["🥇","Dragon",1584200],
 
-        ["🥈","Sletov",1125900],
+        ["🥈","NomerKing",1125900],
 
-        ["🥉","NomerKing",987500],
+        ["🥉","Racer",987500],
 
         ["4","Vlad",754300],
 
-        ["5","Racer",631800],
+        ["5","Maks",631800],
 
-        ["6","Maks",540200],
+        ["6","Hunter",540200],
 
-        ["7","Hunter",481000],
+        ["7","Roma",481000],
 
-        ["8","Roma",396700],
+        ["8","Alex",396700],
 
-        ["9","Alex",352500],
+        ["9","777",352500],
 
-        ["10","777",299999]
+        ["10","Nomer",299999]
 
     ];
 
@@ -2734,43 +2567,49 @@ function showTop() {
 
         <div class="page">
 
-            <div class="page-title">
+            <div class="title">
                 🏆 Топ
             </div>
 
-            <div class="page-subtitle">
+            <div class="subtitle">
                 Самые богатые игроки.
             </div>
 
 
             <div class="top-list">
 
-                ${players.map(
-                    player => `
+                ${
+                    players
+                        .map(
+                            player => `
 
-                        <div class="top-item">
+                                <div class="top-item">
 
-                            <div class="top-left">
+                                    <div class="top-left">
 
-                                <div class="top-place">
-                                    ${player[0]}
+                                        <div class="top-place">
+                                            ${player[0]}
+                                        </div>
+
+                                        <div class="top-name">
+                                            ${player[1]}
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="top-money">
+                                        ${money(
+                                            player[2]
+                                        )}
+                                    </div>
+
                                 </div>
 
-                                <div class="top-name">
-                                    ${player[1]}
-                                </div>
-
-                            </div>
-
-
-                            <div class="top-money">
-                                ${money(player[2])}
-                            </div>
-
-                        </div>
-
-                    `
-                ).join("")}
+                            `
+                        )
+                        .join("")
+                }
 
             </div>
 
@@ -2787,52 +2626,52 @@ function showTop() {
 
 function showProfile() {
 
-    let user =
-        null;
+    let name =
+        "Игрок";
+
+
+    let username =
+        "Telegram";
 
 
     if (
         tg &&
-        tg.initDataUnsafe
+        tg.initDataUnsafe &&
+        tg.initDataUnsafe.user
     ) {
 
-        user =
+        const user =
             tg.initDataUnsafe.user;
 
+
+        name =
+            user.first_name ||
+            "Игрок";
+
+
+        if (
+            user.username
+        ) {
+
+            username =
+                "@" +
+                user.username;
+
+        }
+
     }
-
-
-    const name =
-        user &&
-        user.first_name
-            ? user.first_name
-            : "Игрок";
-
-
-    const username =
-        user &&
-        user.username
-            ? "@" +
-              user.username
-            : "Telegram";
-
-
-    const avatarLetter =
-        name
-            .charAt(0)
-            .toUpperCase();
 
 
     content.innerHTML = `
 
         <div class="page">
 
-            <div class="page-title">
+            <div class="title">
                 👤 Профиль
             </div>
 
-            <div class="page-subtitle">
-                Твоя статистика в «Номера РФ».
+            <div class="subtitle">
+                Информация о твоём аккаунте.
             </div>
 
 
@@ -2841,7 +2680,7 @@ function showProfile() {
                 <div class="profile-head">
 
                     <div class="avatar">
-                        ${avatarLetter}
+                        ${name.charAt(0).toUpperCase()}
                     </div>
 
 
@@ -2851,7 +2690,7 @@ function showProfile() {
                             ${name}
                         </div>
 
-                        <div class="profile-username">
+                        <div class="profile-user">
                             ${username}
                         </div>
 
@@ -2905,12 +2744,12 @@ function showProfile() {
             </div>
 
 
-            <div class="section-title">
+            <div class="section">
                 Дополнительно
             </div>
 
 
-            <div class="quick-grid">
+            <div class="quick">
 
                 <button
                     class="quick-button"
@@ -2927,7 +2766,7 @@ function showProfile() {
                     </div>
 
                     <div class="quick-text">
-                        Активировать бонусный код
+                        Активировать код
                     </div>
 
                 </button>
@@ -2964,7 +2803,8 @@ function navigate(page) {
 
                 button.classList.toggle(
                     "active",
-                    button.dataset.page === page
+                    button.dataset.page ===
+                    page
                 );
 
             }
@@ -3015,25 +2855,14 @@ function navigate(page) {
 
 function openPromo() {
 
+    promoInput.value =
+        "";
+
     promoModal
         .classList
         .remove(
             "hidden"
         );
-
-
-    promoInput.value =
-        "";
-
-
-    setTimeout(
-        () => {
-
-            promoInput.focus();
-
-        },
-        50
-    );
 
 }
 
@@ -3061,7 +2890,7 @@ function usePromo() {
         !PROMOS[code]
     ) {
 
-        showToast(
+        notify(
             "❌ Неверный промокод"
         );
 
@@ -3076,7 +2905,7 @@ function usePromo() {
         )
     ) {
 
-        showToast(
+        notify(
             "❌ Код уже использован"
         );
 
@@ -3085,12 +2914,8 @@ function usePromo() {
     }
 
 
-    const bonus =
-        PROMOS[code];
-
-
     balance +=
-        bonus;
+        PROMOS[code];
 
 
     usedPromos.push(
@@ -3105,16 +2930,15 @@ function usePromo() {
     closePromo();
 
 
-    showToast(
-        "🎉 +" +
-        money(bonus)
+    notify(
+        "🎉 Бонус получен!"
     );
 
 }
 
 
 /* =========================
-   TOP BUTTONS
+   EVENTS
 ========================= */
 
 document
@@ -3144,8 +2968,8 @@ document
     .onclick =
         () => {
 
-            showToast(
-                "💰 " +
+            notify(
+                "💰 Баланс: " +
                 money(balance)
             );
 
@@ -3154,7 +2978,7 @@ document
 
 document
     .getElementById(
-        "promoBackground"
+        "promoBg"
     )
     .onclick =
         closePromo;
@@ -3194,37 +3018,7 @@ promoInput
     );
 
 
-/* =========================
-   USER
-========================= */
-
-if (
-    tg &&
-    tg.initDataUnsafe &&
-    tg.initDataUnsafe.user
-) {
-
-    const user =
-        tg.initDataUnsafe.user;
-
-
-    if (
-        user.first_name
-    ) {
-
-        userGreeting.textContent =
-            "Привет, " +
-            user.first_name +
-            "!";
-
-    }
-
-}
-
-
-/* =========================
-   START
-========================= */
+/* START */
 
 updateBalance();
 
@@ -3233,5 +3027,4 @@ showGame();
 </script>
 
 </body>
-
 </html>
