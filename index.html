@@ -6,83 +6,157 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
+
+    <meta name="theme-color" content="#0b0d11">
 
     <title>Номера РФ</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="app">
+<div class="app">
 
-        <header>
-            <div class="logo">
-                🚘 НОМЕРА РФ
+    <!-- ВЕРХ -->
+
+    <header class="top">
+
+        <div class="logo-box">
+            🚘
+        </div>
+
+        <div class="logo-text">
+
+            <div class="logo-title">
+                НОМЕРА РФ
             </div>
 
-            <div class="balance">
-                💰 49 999 ₽
-            </div>
-        </header>
-
-
-        <main>
-
-            <div class="car">
-                🚘
+            <div class="logo-subtitle">
+                Коллекционируй номера
             </div>
 
-            <div class="plate">
-                А123ВС
-                <span>77</span>
-            </div>
+        </div>
 
-            <div class="rarity">
-                ⭐ Обычный
-            </div>
+        <button
+            class="balance"
+            id="balanceBtn"
+        >
+            💰
+            <span id="balance">
+                49 999 ₽
+            </span>
+        </button>
 
-            <div class="price">
-                1 250 ₽
-            </div>
+    </header>
+
+
+    <!-- ОСНОВА -->
+
+    <main id="content"></main>
+
+
+    <!-- НИЖНЕЕ МЕНЮ -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="nav active"
+            data-page="home"
+        >
+            <div>🎰</div>
+            <span>Игра</span>
+        </button>
+
+        <button
+            class="nav"
+            data-page="storage"
+        >
+            <div>📦</div>
+            <span>Хранилище</span>
+        </button>
+
+        <button
+            class="nav"
+            data-page="top"
+        >
+            <div>🏆</div>
+            <span>Топ</span>
+        </button>
+
+        <button
+            class="nav"
+            data-page="profile"
+        >
+            <div>👤</div>
+            <span>Профиль</span>
+        </button>
+
+    </nav>
+
+
+    <!-- УВЕДОМЛЕНИЕ -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <!-- ПРОМОКОД -->
+
+    <div
+        class="modal hidden"
+        id="promoModal"
+    >
+
+        <div
+            class="modal-bg"
+            id="closePromo1"
+        ></div>
+
+        <div class="modal-window">
 
             <button
-                class="roll-button"
-                onclick="rollNumber()"
+                class="close"
+                id="closePromo2"
             >
-                🎰 КРУТИТЬ
+                ✕
             </button>
 
-        </main>
+            <div class="modal-title">
+                🎟 Промокод
+            </div>
 
+            <div class="modal-description">
+                Введи промокод и получи деньги.
+            </div>
 
-        <nav>
+            <input
+                id="promoInput"
+                class="promo-input"
+                placeholder="Введи промокод"
+                autocomplete="off"
+            >
 
-            <button onclick="showHome()">
-                🏠
-                <span>Главная</span>
+            <button
+                id="promoButton"
+                class="main-button"
+            >
+                АКТИВИРОВАТЬ
             </button>
 
-            <button onclick="showStorage()">
-                📦
-                <span>Хранилище</span>
-            </button>
-
-            <button onclick="showProfile()">
-                👤
-                <span>Профиль</span>
-            </button>
-
-        </nav>
+        </div>
 
     </div>
 
-    <script src="script.js"></script>
+
+</div>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="script.js"></script>
 
 </body>
 
