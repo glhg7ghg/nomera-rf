@@ -3,777 +3,973 @@
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
->
-
-<meta
-    name="theme-color"
-    content="#0b0d11"
->
-
-<title>Номера РФ</title>
-
-<style>
-
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-    background: #0b0d11;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    min-height: 100vh;
-}
-
-button {
-    font-family: Arial, sans-serif;
-    border: none;
-    color: white;
-    cursor: pointer;
-    touch-action: manipulation;
-}
-
-.app {
-    width: 100%;
-    max-width: 550px;
-    min-height: 100vh;
-    margin: auto;
-    padding-bottom: 95px;
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(50,150,255,.12),
-            transparent 35%
-        ),
-        #0b0d11;
-}
-
-
-/* ВЕРХ */
-
-.header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px;
-    background: #0f1318;
-    border-bottom: 1px solid #222830;
-}
-
-.logo {
-    width: 43px;
-    height: 43px;
-    border-radius: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #1a222c;
-    font-size: 23px;
-}
-
-.logo-text {
-    flex: 1;
-}
-
-.logo-title {
-    font-size: 16px;
-    font-weight: 900;
-}
-
-.logo-subtitle {
-    margin-top: 3px;
-    font-size: 10px;
-    color: #7c8794;
-}
-
-.balance {
-    padding: 10px 12px;
-    border-radius: 13px;
-    background: #15241b;
-    color: #55e685;
-    font-size: 12px;
-    font-weight: 900;
-}
-
-
-/* ОСНОВНОЙ ЭКРАН */
-
-.screen {
-    padding: 18px 14px;
-}
-
-.title {
-    font-size: 26px;
-    font-weight: 900;
-    margin-bottom: 6px;
-}
-
-.subtitle {
-    color: #808b98;
-    font-size: 12px;
-    line-height: 1.5;
-    margin-bottom: 18px;
-}
-
-
-/* КАРТОЧКА */
-
-.card {
-    padding: 18px;
-    border-radius: 24px;
-    background:
-        linear-gradient(
-            180deg,
-            #181d24,
-            #11151a
-        );
-    border: 1px solid #252b33;
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.35);
-}
-
-.label {
-    color: #77818d;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-
-/* НОМЕР */
-
-.plate-zone {
-    display: flex;
-    justify-content: center;
-    padding: 35px 0;
-}
-
-.plate {
-    display: flex;
-    align-items: stretch;
-    background: white;
-    color: black;
-    border: 3px solid black;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.45);
-}
-
-.plate-main {
-    padding: 11px 12px;
-    font-size: 37px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.plate-region {
-    display: flex;
-    align-items: center;
-    padding: 0 9px;
-    border-left: 2px solid #222;
-    font-size: 19px;
-    font-weight: 900;
-}
-
-.plate-rus {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 6px;
-    border-left: 1px solid #333;
-    font-size: 7px;
-    font-weight: 900;
-}
-
-.flag {
-    width: 18px;
-    height: 11px;
-    margin-bottom: 3px;
-    background:
-        linear-gradient(
-            to bottom,
-            white 0 33%,
-            #4775ba 33% 66%,
-            #df5555 66%
-        );
-    border: 1px solid #aaa;
-}
-
-
-/* ИНФОРМАЦИЯ */
-
-.info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.info-box {
-    padding: 13px;
-    border-radius: 15px;
-    background: #12171d;
-    border: 1px solid #20262d;
-}
-
-.info-name {
-    color: #78828d;
-    font-size: 10px;
-}
-
-.info-value {
-    margin-top: 6px;
-    font-size: 15px;
-    font-weight: 900;
-}
-
-.green {
-    color: #55e685;
-}
-
-
-/* КНОПКА */
-
-.roll {
-    width: 100%;
-    margin-top: 13px;
-    padding: 17px;
-    border-radius: 16px;
-    background:
-        linear-gradient(
-            180deg,
-            #42aaff,
-            #278ddd
-        );
-    font-size: 17px;
-    font-weight: 900;
-}
-
-.roll:active {
-    transform: scale(.97);
-}
-
-.cost {
-    text-align: center;
-    margin-top: 7px;
-    color: #707b87;
-    font-size: 10px;
-}
-
-
-/* БЫСТРЫЕ КНОПКИ */
-
-.section {
-    margin: 24px 3px 10px;
-    font-size: 15px;
-    font-weight: 900;
-}
-
-.quick {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.quick button {
-    padding: 16px;
-    border-radius: 17px;
-    background: #14191f;
-    border: 1px solid #222830;
-    text-align: left;
-}
-
-.quick-icon {
-    font-size: 23px;
-}
-
-.quick-title {
-    margin-top: 9px;
-    font-size: 14px;
-    font-weight: 900;
-}
-
-.quick-text {
-    margin-top: 5px;
-    color: #747f8b;
-    font-size: 10px;
-}
-
-
-/* НИЖНЕЕ МЕНЮ */
-
-.bottom {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: min(550px, 100%);
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 5px;
-    padding: 8px;
-    background: #0f1318;
-    border-top: 1px solid #222830;
-    z-index: 50;
-}
-
-.nav {
-    min-height: 58px;
-    border-radius: 13px;
-    background: transparent;
-    color: #6f7985;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-size: 9px;
-    font-weight: 800;
-}
-
-.nav-icon {
-    font-size: 20px;
-}
-
-.nav.active {
-    background: #1a2027;
-    color: white;
-}
-
-
-/* СПИСОК */
-
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-}
-
-.item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 14px;
-    border-radius: 16px;
-    background: #14191f;
-    border: 1px solid #222830;
-}
-
-.item-number {
-    font-size: 17px;
-    font-weight: 900;
-}
-
-.item-rarity {
-    margin-top: 4px;
-    font-size: 10px;
-}
-
-.item-price {
-    margin-top: 3px;
-    color: #55e685;
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.sell {
-    padding: 9px 11px;
-    border-radius: 11px;
-    background: #193022;
-    color: #55e685;
-    font-size: 10px;
-    font-weight: 900;
-}
-
-.empty {
-    padding: 45px 20px;
-    border-radius: 18px;
-    border: 1px dashed #2b3139;
-    text-align: center;
-    color: #737e8a;
-    font-size: 12px;
-}
-
-
-/* ТОП */
-
-.top-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.top-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 13px;
-    border-radius: 15px;
-    background: #14191f;
-    border: 1px solid #222830;
-}
-
-.top-player {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.top-place {
-    width: 25px;
-    text-align: center;
-    font-weight: 900;
-}
-
-.top-money {
-    color: #55e685;
-    font-size: 11px;
-    font-weight: 900;
-}
-
-
-/* ПРОФИЛЬ */
-
-.profile {
-    padding: 17px;
-    border-radius: 20px;
-    background: #14191f;
-    border: 1px solid #222830;
-}
-
-.profile-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.avatar {
-    width: 55px;
-    height: 55px;
-    border-radius: 17px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #222a34;
-    font-size: 25px;
-    font-weight: 900;
-}
-
-.profile-name {
-    font-size: 17px;
-    font-weight: 900;
-}
-
-.profile-user {
-    margin-top: 4px;
-    color: #75808c;
-    font-size: 10px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.stat {
-    padding: 12px 5px;
-    text-align: center;
-    border-radius: 14px;
-    background: #101419;
-}
-
-.stat-value {
-    font-size: 14px;
-    font-weight: 900;
-}
-
-.stat-name {
-    margin-top: 4px;
-    color: #6f7985;
-    font-size: 9px;
-}
-
-
-/* УВЕДОМЛЕНИЕ */
-
-.toast {
-    position: fixed;
-    left: 50%;
-    bottom: 82px;
-    transform: translate(-50%,20px);
-    padding: 11px 15px;
-    border-radius: 13px;
-    background: #22282f;
-    font-size: 11px;
-    font-weight: 800;
-    opacity: 0;
-    pointer-events: none;
-    transition: .2s;
-    z-index: 100;
-    white-space: nowrap;
-}
-
-.toast.show {
-    opacity: 1;
-    transform: translate(-50%,0);
-}
-
-
-/* ПРОМО */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    display: flex;
-    align-items: flex-end;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal-bg {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.7);
-}
-
-.modal-box {
-    position: relative;
-    width: 100%;
-    max-width: 550px;
-    padding: 20px 16px;
-    border-radius: 22px 22px 0 0;
-    background: #161b21;
-    border-top: 1px solid #292f37;
-}
-
-.modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    background: #232a31;
-}
-
-.modal-title {
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.input {
-    width: 100%;
-    margin-top: 15px;
-    padding: 14px;
-    border-radius: 13px;
-    background: #0d1115;
-    border: 1px solid #262d34;
-    color: white;
-    outline: none;
-}
-
-.modal-submit {
-    width: 100%;
-    margin-top: 10px;
-    padding: 15px;
-    border-radius: 14px;
-    background: #369eff;
-    font-weight: 900;
-}
-
-
-@media (max-width: 380px) {
-
-    .plate-main {
-        font-size: 29px;
-    }
-
-    .plate-region {
-        font-size: 17px;
-    }
-
-    .quick {
-        grid-template-columns: 1fr;
-    }
-
-}
-/* =========================
-   ДЕЙСТВИЯ С НОМЕРОМ
-========================= */
-
-.hidden {
-    display: none !important;
-}
-
-.result-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.take-btn,
-.sell-btn {
-    padding: 15px 10px;
-    border-radius: 15px;
-    font-size: 13px;
-    font-weight: 900;
-    transition: .12s;
-}
-
-.take-btn:active,
-.sell-btn:active {
-    transform: scale(.96);
-}
-
-.take-btn {
-    background: #1c2833;
-    border: 1px solid #344553;
-}
-
-.sell-btn {
-    background: #193022;
-    color: #55e685;
-    border: 1px solid #28563a;
-}
-
-
-/* =========================
-   БОЛЕЕ РЕАЛИСТИЧНЫЙ НОМЕР
-========================= */
-
-.plate {
-    position: relative;
-    min-width: 275px;
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #f8f8f8 50%,
-            #e8e8e8 100%
-        );
-
-    border: 3px solid #111;
-
-    border-radius: 7px;
-
-    box-shadow:
-        0 3px 0 #555,
-        0 7px 0 #111,
-        0 16px 30px rgba(0,0,0,.48);
-
-    transform:
-        perspective(500px)
-        rotateX(1deg);
-}
-
-.plate::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    top: 0;
-
-    height: 3px;
-
-    background:
-        rgba(255,255,255,.95);
-
-    pointer-events: none;
-}
-
-.plate::after {
-    content: "";
-
-    position: absolute;
-
-    left: 5px;
-    right: 5px;
-    bottom: 4px;
-
-    height: 2px;
-
-    background:
-        rgba(0,0,0,.16);
-
-    pointer-events: none;
-}
-
-.plate-main {
-    position: relative;
-    z-index: 2;
-
-    font-family:
-        Arial Black,
-        Arial,
-        sans-serif;
-
-    font-weight: 900;
-
-    color: #080808;
-
-    text-shadow:
-        0 1px 0 #fff;
-
-    letter-spacing: 1px;
-}
-
-.plate-region {
-    position: relative;
-    z-index: 2;
-
-    color: #111;
-
-    font-weight: 900;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.03),
-            rgba(255,255,255,.5)
-        );
-}
-
-.plate-rus {
-    position: relative;
-    z-index: 2;
-
-    color: #111;
-
-    background:
-        rgba(255,255,255,.25);
-}
-
-.flag {
-    box-shadow:
-        0 1px 2px rgba(0,0,0,.25);
-
-    border-radius: 1px;
-}
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b0c0f"
+    >
+
+    <title>Номера РФ</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            background: #0b0c0f;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            overscroll-behavior: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            border: 0;
+            cursor: pointer;
+            color: inherit;
+            touch-action: manipulation;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 560px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(74, 148, 255, 0.10),
+                    transparent 34%
+                ),
+                #0b0c0f;
+            padding-bottom: calc(92px + env(safe-area-inset-bottom));
+        }
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding:
+                calc(11px + env(safe-area-inset-top))
+                14px
+                11px;
+
+            background: rgba(11,12,15,.95);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #171a20;
+            border: 1px solid rgba(255,255,255,.07);
+
+            font-size: 20px;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: .3px;
+        }
+
+        .brand-desc {
+            margin-top: 3px;
+            color: #737b87;
+            font-size: 10px;
+        }
+
+        .balance-button {
+            padding: 9px 11px;
+            border-radius: 12px;
+
+            background: #142219;
+            border: 1px solid rgba(79,224,132,.16);
+
+            color: #5ce58d;
+            font-size: 12px;
+            font-weight: 900;
+
+            white-space: nowrap;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            padding: 18px 14px;
+        }
+
+        .page {
+            animation: pageIn .18s ease;
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -.5px;
+        }
+
+        .page-subtitle {
+            margin-top: 6px;
+            color: #7d8591;
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        /* =========================
+           GAME CARD
+        ========================= */
+
+        .game-card {
+            margin-top: 16px;
+            padding: 17px;
+
+            border-radius: 23px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #16191f 0%,
+                    #111318 100%
+                );
+
+            border: 1px solid rgba(255,255,255,.07);
+
+            box-shadow:
+                0 18px 45px rgba(0,0,0,.26);
+        }
+
+        .small-label {
+            color: #777f8a;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           REALISTIC PLATE
+        ========================= */
 
+        .plate-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 145px;
+            padding: 24px 4px;
+        }
+
+        .plate {
+            position: relative;
+
+            width: min(100%, 405px);
+            aspect-ratio: 520 / 112;
+
+            display: flex;
+            align-items: stretch;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f7f7f7 52%,
+                    #e9e9e9 100%
+                );
+
+            border: 3px solid #111;
+            border-radius: 7px;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.95),
+                inset 0 -2px 3px rgba(0,0,0,.16),
+                0 2px 0 #6c6c6c,
+                0 5px 0 #111,
+                0 15px 28px rgba(0,0,0,.42);
+        }
+
+        .plate::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+
+            height: 4px;
+
+            background: rgba(255,255,255,.8);
+
+            pointer-events: none;
+        }
+
+        .plate-main {
+            flex: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding-left: 8px;
+            padding-right: 4px;
+
+            color: #060606;
+
+            font-family:
+                Arial Black,
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: clamp(31px, 8vw, 49px);
+            font-weight: 900;
+
+            letter-spacing: 1px;
+            line-height: 1;
+
+            white-space: nowrap;
+
+            text-shadow:
+                0 1px 0 #ffffff;
+        }
+
+        .plate-region {
+            width: 15%;
+            min-width: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-left: 2px solid #202020;
+
+            color: #111;
+
+            font-size: clamp(17px, 4vw, 24px);
+            font-weight: 900;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.025),
+                    rgba(255,255,255,.5)
+                );
+        }
+
+        .plate-country {
+            width: 13%;
+            min-width: 43px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 3px;
+
+            border-left: 1px solid #444;
+
+            color: #111;
+
+            font-size: 8px;
+            font-weight: 900;
+        }
+
+        .flag {
+            width: 24px;
+            height: 14px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #ffffff 0 33%,
+                    #4f72ad 33% 66%,
+                    #d85a5a 66% 100%
+                );
+
+            border: 1px solid #999;
+            border-radius: 1px;
+
+            box-shadow:
+                0 1px 2px rgba(0,0,0,.25);
+        }
+
+        /* =========================
+           META
+        ========================= */
+
+        .meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .meta-box {
+            padding: 12px 13px;
+            border-radius: 14px;
+
+            background: #111419;
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .meta-title {
+            color: #737c88;
+            font-size: 9px;
+        }
+
+        .meta-value {
+            margin-top: 6px;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .price {
+            color: #5ce58d;
+        }
+
+        .common {
+            color: #adb5bf;
+        }
+
+        .rare {
+            color: #55adff;
+        }
+
+        .epic {
+            color: #aa7bff;
+        }
+
+        .legendary {
+            color: #ffd15b;
+        }
+
+        .secret {
+            color: #ff83c0;
+        }
+
+        /* =========================
+           MAIN BUTTON
+        ========================= */
+
+        .roll-button {
+            width: 100%;
+            min-height: 60px;
+
+            margin-top: 12px;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #3fa8ff 0%,
+                    #2d91df 100%
+                );
+
+            box-shadow:
+                0 10px 25px rgba(47,149,226,.18);
+
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: .3px;
+        }
+
+        .roll-button:active {
+            transform: scale(.975);
+        }
+
+        .roll-button:disabled {
+            opacity: .65;
+        }
+
+        .roll-cost {
+            margin-top: 7px;
+            text-align: center;
+
+            color: #707883;
+            font-size: 9px;
+        }
+
+        /* =========================
+           TAKE / SELL
+        ========================= */
+
+        .result-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+
+            margin-top: 11px;
+        }
+
+        .result-button {
+            min-height: 55px;
+            border-radius: 15px;
+
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .take-button {
+            background:
+                linear-gradient(
+                    180deg,
+                    #29343d,
+                    #202930
+                );
+
+            border: 1px solid #3a4852;
+        }
+
+        .sell-button {
+            background:
+                linear-gradient(
+                    180deg,
+                    #255438,
+                    #193c28
+                );
+
+            color: #62ec92;
+
+            border: 1px solid #36744c;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* =========================
+           QUICK ACTIONS
+        ========================= */
+
+        .section-title {
+            margin: 20px 3px 9px;
+
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .quick-button {
+            min-height: 78px;
+
+            padding: 14px;
+
+            border-radius: 16px;
+
+            background: #14171c;
+            border: 1px solid rgba(255,255,255,.06);
+
+            text-align: left;
+        }
+
+        .quick-button:active {
+            transform: scale(.98);
+        }
+
+        .quick-icon {
+            font-size: 21px;
+        }
+
+        .quick-title {
+            margin-top: 7px;
+
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .quick-text {
+            margin-top: 4px;
+
+            color: #717a86;
+
+            font-size: 9px;
+            line-height: 1.35;
+        }
+
+        /* =========================
+           STORAGE
+        ========================= */
+
+        .storage-list {
+            display: grid;
+            gap: 9px;
+            margin-top: 16px;
+        }
+
+        .storage-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            padding: 14px;
+
+            border-radius: 16px;
+
+            background: #14171c;
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .storage-number {
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: .5px;
+        }
+
+        .storage-rarity {
+            margin-top: 4px;
+            font-size: 10px;
+        }
+
+        .storage-price {
+            margin-top: 4px;
+            color: #5ce58d;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .storage-sell {
+            padding: 10px 12px;
+            border-radius: 11px;
+
+            background: #1a3022;
+
+            color: #5ce58d;
+
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .empty {
+            margin-top: 16px;
+
+            padding: 42px 20px;
+
+            border-radius: 17px;
+
+            border: 1px dashed #2a2e35;
+
+            text-align: center;
+
+            color: #737c88;
+
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .empty-icon {
+            margin-bottom: 8px;
+            font-size: 33px;
+        }
+
+        /* =========================
+           TOP
+        ========================= */
+
+        .top-list {
+            display: grid;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .top-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 13px 14px;
+
+            border-radius: 15px;
+
+            background: #14171c;
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .top-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-place {
+            width: 25px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .top-name {
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .top-money {
+            color: #5ce58d;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .profile-card {
+            margin-top: 16px;
+
+            padding: 16px;
+
+            border-radius: 19px;
+
+            background: #14171c;
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .profile-head {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .avatar {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #222832;
+
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .profile-name {
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .profile-username {
+            margin-top: 3px;
+            color: #757f8c;
+            font-size: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+            margin-top: 14px;
+        }
+
+        .stat {
+            padding: 11px 5px;
+            border-radius: 13px;
+
+            background: #101318;
+
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .stat-name {
+            margin-top: 4px;
+            color: #6e7782;
+            font-size: 9px;
+        }
+
+        /* =========================
+           BOTTOM NAV
+        ========================= */
+
+        .bottom-nav {
+            position: fixed;
+            left: 50%;
+            bottom: 0;
+            z-index: 60;
+
+            transform: translateX(-50%);
+
+            width: min(560px, 100%);
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+
+            padding:
+                8px
+                8px
+                calc(8px + env(safe-area-inset-bottom));
+
+            background: rgba(13,15,19,.97);
+            border-top: 1px solid rgba(255,255,255,.07);
+
+            backdrop-filter: blur(16px);
+        }
+
+        .nav-button {
+            min-height: 57px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+
+            border-radius: 13px;
+
+            background: transparent;
+
+            color: #6e7784;
+
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        .nav-button.active {
+            background: #181d23;
+            color: #ffffff;
+        }
+
+        .nav-icon {
+            font-size: 19px;
+            line-height: 1;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: calc(83px + env(safe-area-inset-bottom));
+            z-index: 100;
+
+            transform: translate(-50%, 15px);
+
+            max-width: calc(100% - 30px);
+
+            padding: 11px 14px;
+
+            border-radius: 12px;
+
+            background: #21262d;
+            border: 1px solid rgba(255,255,255,.08);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            white-space: nowrap;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: .2s;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .modal.hidden {
+            display: none;
+        }
+
+        .modal-bg {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,.72);
+        }
+
+        .modal-box {
+            position: relative;
+
+            width: 100%;
+            max-width: 560px;
+
+            padding: 20px 15px calc(18px + env(safe-area-inset-bottom));
+
+            border-radius: 22px 22px 0 0;
+
+            background: #161a20;
+
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 11px;
+
+            width: 31px;
+            height: 31px;
+
+            border-radius: 10px;
+
+            background: #242a31;
+
+            color: #8c949e;
+        }
+
+        .modal-title {
+            font-size: 19px;
+            font-weight: 900;
+        }
+
+        .modal-description {
+            margin-top: 5px;
+            color: #747e89;
+            font-size: 10px;
+        }
+
+        .modal-input {
+            width: 100%;
+
+            margin-top: 14px;
+
+            padding: 14px;
+
+            border-radius: 13px;
+
+            background: #0d1014;
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            color: white;
+
+            outline: none;
+        }
+
+        .modal-button {
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 15px;
+
+            border-radius: 14px;
+
+            background: #369df2;
+
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        @media (max-width: 380px) {
+
+            .plate-main {
+                font-size: 29px;
+            }
+
+            .plate-region {
+                min-width: 44px;
+                font-size: 16px;
+            }
+
+            .plate-country {
+                min-width: 38px;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -782,126 +978,178 @@ button {
 
 <div class="app">
 
+    <!-- =========================
+         TOP
+    ========================= -->
 
-<header class="header">
+    <header class="topbar">
 
-    <div class="logo">
-        🚘
-    </div>
+        <div class="brand">
 
-    <div class="logo-text">
+            <div class="brand-icon">
+                ₽
+            </div>
 
-        <div class="logo-title">
-            НОМЕРА РФ
+            <div>
+
+                <div class="brand-name">
+                    НОМЕРА РФ
+                </div>
+
+                <div class="brand-desc" id="userGreeting">
+                    Собирай редкие номера
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="logo-subtitle">
-            Коллекционируй номера
-        </div>
 
-    </div>
+        <button
+            class="balance-button"
+            id="balanceButton"
+            type="button"
+        >
+            💰
+            <span id="balanceText">
+                49 999 ₽
+            </span>
+        </button>
 
-    <button
-        class="balance"
-        id="balanceButton"
-    >
-        💰 <span id="balance">49 999 ₽</span>
-    </button>
-
-</header>
-
-
-<div
-    class="screen"
-    id="screen"
->
-</div>
+    </header>
 
 
-<nav class="bottom">
+    <!-- =========================
+         CONTENT
+    ========================= -->
 
-    <button
-        class="nav active"
-        data-page="game"
-    >
-        <div class="nav-icon">🎰</div>
-        Игра
-    </button>
-
-    <button
-        class="nav"
-        data-page="storage"
-    >
-        <div class="nav-icon">📦</div>
-        Хранилище
-    </button>
-
-    <button
-        class="nav"
-        data-page="top"
-    >
-        <div class="nav-icon">🏆</div>
-        Топ
-    </button>
-
-    <button
-        class="nav"
-        data-page="profile"
-    >
-        <div class="nav-icon">👤</div>
-        Профиль
-    </button>
-
-</nav>
+    <main
+        class="content"
+        id="content"
+    ></main>
 
 
-<div
-    class="toast"
-    id="toast"
->
-</div>
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="nav-button active"
+            data-page="game"
+            type="button"
+        >
+            <div class="nav-icon">
+                🎰
+            </div>
+            Игра
+        </button>
 
 
-<div
-    class="modal hidden"
-    id="promoModal"
->
+        <button
+            class="nav-button"
+            data-page="storage"
+            type="button"
+        >
+            <div class="nav-icon">
+                📦
+            </div>
+            Хранилище
+        </button>
+
+
+        <button
+            class="nav-button"
+            data-page="top"
+            type="button"
+        >
+            <div class="nav-icon">
+                🏆
+            </div>
+            Топ
+        </button>
+
+
+        <button
+            class="nav-button"
+            data-page="profile"
+            type="button"
+        >
+            <div class="nav-icon">
+                👤
+            </div>
+            Профиль
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         TOAST
+    ========================= -->
 
     <div
-        class="modal-bg"
-        id="modalBg"
+        class="toast"
+        id="toast"
     ></div>
 
-    <div class="modal-box">
 
-        <button
-            class="modal-close"
-            id="modalClose"
-        >
-            ✕
-        </button>
+    <!-- =========================
+         PROMO MODAL
+    ========================= -->
 
-        <div class="modal-title">
-            🎟 Промокод
+    <div
+        class="modal hidden"
+        id="promoModal"
+    >
+
+        <div
+            class="modal-bg"
+            id="promoBackground"
+        ></div>
+
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                id="promoClose"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <div class="modal-title">
+                🎟 Промокод
+            </div>
+
+
+            <div class="modal-description">
+                Введи код и получи бонус.
+            </div>
+
+
+            <input
+                class="modal-input"
+                id="promoInput"
+                placeholder="Введите промокод"
+                autocomplete="off"
+            >
+
+
+            <button
+                class="modal-button"
+                id="promoSubmit"
+                type="button"
+            >
+                АКТИВИРОВАТЬ
+            </button>
+
         </div>
 
-        <input
-            id="promoInput"
-            class="input"
-            placeholder="Введи промокод"
-        >
-
-        <button
-            id="promoSubmit"
-            class="modal-submit"
-        >
-            АКТИВИРОВАТЬ
-        </button>
-
     </div>
-
-</div>
-
 
 </div>
 
@@ -909,59 +1157,47 @@ button {
 <script>
 
 /* =========================
-   ДАННЫЕ
+   TELEGRAM
 ========================= */
 
-const screen =
-    document.getElementById("screen");
-
-const balanceElement =
-    document.getElementById("balance");
-
-const toast =
-    document.getElementById("toast");
-
-const promoModal =
-    document.getElementById("promoModal");
-
-const promoInput =
-    document.getElementById("promoInput");
+const tg =
+    window.Telegram &&
+    window.Telegram.WebApp
+        ? window.Telegram.WebApp
+        : null;
 
 
-let balance =
-    Number(
-        localStorage.getItem(
-            "nomera_balance"
-        )
-    ) || 49999;
+if (tg) {
+
+    tg.ready();
+
+    tg.expand();
+
+    try {
+
+        tg.setHeaderColor(
+            "#0b0c0f"
+        );
+
+        tg.setBackgroundColor(
+            "#0b0c0f"
+        );
+
+    } catch (error) {}
+
+}
 
 
-let rolls =
-    Number(
-        localStorage.getItem(
-            "nomera_rolls"
-        )
-    ) || 0;
-let currentNumber =
-    JSON.parse(
-        localStorage.getItem(
-            "nomera_current"
-        ) || "null"
-    );
+/* =========================
+   CONSTANTS
+========================= */
 
-let storage =
-    JSON.parse(
-        localStorage.getItem(
-            "nomera_storage"
-        ) || "[]"
-    );
-
-
-const letters =
+const LETTERS =
     "АВЕКМНОРСТУХ";
 
 
-const regions = [
+const REGIONS = [
+
     "01","02","03","04","05",
     "06","07","08","09","10",
     "11","12","13","14","15",
@@ -977,55 +1213,105 @@ const regions = [
     "61","62","63","64","65",
     "66","67","68","69","70",
     "71","72","73","74","75",
-    "76","77","78","79","80",
-    "81","82","83","84","85",
-    "86","87","88","89","90",
-    "91","92","93","94","95",
-    "96","97","98","99",
-    "116","150","177","199"
+    "76","77","78","79",
+    "80","81","82","83","84",
+    "85","86","87","88","89",
+    "90","91","92","93","94",
+    "95","96","97","98","99",
+    "102","116","121","122",
+    "123","124","125","126",
+    "134","136","138","142",
+    "147","150","152","154",
+    "156","159","161","163",
+    "164","165","166","167",
+    "169","173","174","176",
+    "177","178","180","181",
+    "183","184","185","186",
+    "190","193","196","197",
+    "198","199"
+
 ];
 
 
-const rarities = [
+const RARITIES = [
+
     {
         name: "Обычный",
         min: 200,
         max: 1700,
-        className: ""
+        className: "common"
     },
+
     {
         name: "Редкий",
         min: 1999,
         max: 7999,
         className: "rare"
     },
+
     {
         name: "Эпический",
         min: 7999,
         max: 14999,
         className: "epic"
     },
+
     {
         name: "Легендарный",
         min: 69999,
         max: 149999,
         className: "legendary"
     },
+
     {
         name: "Секретный",
         min: 200999,
         max: 899999,
         className: "secret"
     }
+
 ];
 
 
-const promos = {
+const PROMOS = {
+
     START: 25000,
+
     NOMERA: 50000,
+
     "777": 77777,
+
     SECRET: 150000
+
 };
+
+
+const ROLL_COST =
+    9999;
+
+
+/* =========================
+   STATE
+========================= */
+
+let balance =
+    Number(
+        localStorage.getItem(
+            "nomera_balance"
+        )
+    ) || 49999;
+
+
+let rolls =
+    Number(
+        localStorage.getItem(
+            "nomera_rolls"
+        )
+    ) || 0;
+
+
+let storage =
+    readStorage();
 
 
 let usedPromos =
@@ -1036,20 +1322,175 @@ let usedPromos =
     );
 
 
+let currentNumber =
+    JSON.parse(
+        localStorage.getItem(
+            "nomera_current"
+        ) || "null"
+    );
+
+
+function readStorage() {
+
+    try {
+
+        const value =
+            JSON.parse(
+                localStorage.getItem(
+                    "nomera_storage"
+                ) || "[]"
+            );
+
+        return Array.isArray(value)
+            ? value
+            : [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
 /* =========================
-   СОХРАНЕНИЕ
+   DOM
+========================= */
+
+const content =
+    document.getElementById(
+        "content"
+    );
+
+
+const balanceText =
+    document.getElementById(
+        "balanceText"
+    );
+
+
+const toast =
+    document.getElementById(
+        "toast"
+    );
+
+
+const promoModal =
+    document.getElementById(
+        "promoModal"
+    );
+
+
+const promoInput =
+    document.getElementById(
+        "promoInput"
+    );
+
+
+const userGreeting =
+    document.getElementById(
+        "userGreeting"
+    );
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function money(value) {
+
+    return (
+        Math.round(value)
+            .toLocaleString("ru-RU")
+        + " ₽"
+    );
+
+}
+
+
+function randomItem(array) {
+
+    return array[
+        Math.floor(
+            Math.random() *
+            array.length
+        )
+    ];
+
+}
+
+
+function randomLetter() {
+
+    return randomItem(
+        LETTERS.split("")
+    );
+
+}
+
+
+function randomDigit() {
+
+    return String(
+        Math.floor(
+            Math.random() * 10
+        )
+    );
+
+}
+
+
+function randomDigits(count) {
+
+    let result = "";
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        result += randomDigit();
+
+    }
+
+    return result;
+
+}
+
+
+function randomRegion() {
+
+    return randomItem(
+        REGIONS
+    );
+
+}
+
+
+function updateBalance() {
+
+    balanceText.textContent =
+        money(balance);
+
+}
+
+
+/* =========================
+   SAVE
 ========================= */
 
 function save() {
 
     localStorage.setItem(
         "nomera_balance",
-        balance
+        String(balance)
     );
 
     localStorage.setItem(
         "nomera_rolls",
-        rolls
+        String(rolls)
     );
 
     localStorage.setItem(
@@ -1069,108 +1510,144 @@ function save() {
 
 }
 
+
 /* =========================
-   ДЕНЬГИ
+   TOAST
 ========================= */
 
-function money(value) {
+function showToast(message) {
 
-    return (
-        Math.round(value)
-        .toLocaleString("ru-RU")
-        + " ₽"
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
     );
 
-}
-
-
-function updateBalance() {
-
-    balanceElement.textContent =
-        money(balance);
-
-}
-
-
-/* =========================
-   СЛУЧАЙНЫЕ ДАННЫЕ
-========================= */
-
-function letter() {
-
-    return letters[
-        Math.floor(
-            Math.random() *
-            letters.length
-        )
-    ];
-
-}
-
-
-function digit() {
-
-    return String(
-        Math.floor(
-            Math.random() * 10
-        )
+    clearTimeout(
+        window.toastTimer
     );
 
-}
+    window.toastTimer =
+        setTimeout(
+            () => {
 
+                toast.classList.remove(
+                    "show"
+                );
 
-function region() {
+            },
+            2200
+        );
 
-    return regions[
-        Math.floor(
-            Math.random() *
-            regions.length
-        )
-    ];
+    if (
+        tg &&
+        tg.HapticFeedback
+    ) {
+
+        try {
+
+            tg.HapticFeedback
+                .notificationOccurred(
+                    "success"
+                );
+
+        } catch (error) {}
+
+    }
 
 }
 
 
 /* =========================
-   РЕДКОСТЬ
+   RARITY
 ========================= */
 
-function rarity() {
+function getRarity() {
 
     const chance =
         Math.random() * 100;
 
-    if (chance < 0.3)
-        return rarities[4];
 
-    if (chance < 4)
-        return rarities[3];
+    if (
+        chance < 0.3
+    ) {
 
-    if (chance < 20)
-        return rarities[2];
+        return RARITIES[4];
 
-    if (chance < 45)
-        return rarities[1];
+    }
 
-    return rarities[0];
+
+    if (
+        chance < 4
+    ) {
+
+        return RARITIES[3];
+
+    }
+
+
+    if (
+        chance < 20
+    ) {
+
+        return RARITIES[2];
+
+    }
+
+
+    if (
+        chance < 45
+    ) {
+
+        return RARITIES[1];
+
+    }
+
+
+    return RARITIES[0];
 
 }
 
 
 /* =========================
-   НОМЕР
+   NUMBER GENERATION
 ========================= */
 
-function generateNumber(r) {
+function generateNumber(
+    rarity
+) {
 
-    let d1 = digit();
-    let d2 = digit();
-    let d3 = digit();
+    let first =
+        randomLetter();
 
-    let l1 = letter();
-    let l2 = letter();
 
-    if (r.name === "Редкий") {
+    let d1 =
+        randomDigit();
+
+
+    let d2 =
+        randomDigit();
+
+
+    let d3 =
+        randomDigit();
+
+
+    let l2 =
+        randomLetter();
+
+
+    let l3 =
+        randomLetter();
+
+
+    /* РЕДКИЙ */
+
+    if (
+        rarity.name ===
+        "Редкий"
+    ) {
 
         if (
             Math.random() < .5
@@ -1180,85 +1657,127 @@ function generateNumber(r) {
 
         } else {
 
-            l2 = l1;
+            l3 = l2;
 
         }
 
     }
 
 
+    /* ЭПИЧЕСКИЙ */
+
     if (
-        r.name === "Эпический"
+        rarity.name ===
+        "Эпический"
     ) {
 
         d2 = d1;
+
         d3 = d1;
 
     }
 
 
+    /* ЛЕГЕНДАРНЫЙ */
+
     if (
-        r.name === "Легендарный"
+        rarity.name ===
+        "Легендарный"
     ) {
 
         const combos = [
+
             "АМР",
             "ЕКХ",
             "ММР",
             "ХРХ",
             "ХАХ",
             "МРР"
+
         ];
 
-        const combo =
-            combos[
-                Math.floor(
-                    Math.random()
-                    * combos.length
-                )
-            ];
 
-        d2 = d1;
-        d3 = d1;
+        const combo =
+            randomItem(
+                combos
+            );
+
+
+        const d =
+            randomDigit();
+
 
         return {
+
             main:
                 combo[0] +
-                d1 +
-                d2 +
-                d3 +
+                d +
+                d +
+                d +
                 combo[1] +
                 combo[2],
 
             region:
-                region()
+                randomRegion()
+
         };
 
     }
 
 
+    /* СЕКРЕТНЫЙ */
+
     if (
-        r.name === "Секретный"
+        rarity.name ===
+        "Секретный"
     ) {
 
         const l =
-            letter();
+            randomLetter();
 
-        d1 =
-            digit();
+
+        const d =
+            randomDigit();
+
+
+        const specialRegions =
+            REGIONS.filter(
+                value =>
+
+                    (
+                        value.length === 2 &&
+                        value[0] === value[1]
+                    )
+
+                    ||
+
+                    (
+                        value.length === 3 &&
+                        (
+                            value[0] === value[1] ||
+                            value[1] === value[2] ||
+                            value[0] === value[2]
+                        )
+                    )
+            );
+
 
         return {
 
             main:
                 l +
-                d1 +
-                d1 +
-                d1 +
+                d +
+                d +
+                d +
                 l +
                 l,
 
             region:
-                "77"
+                specialRegions.length
+                    ? randomItem(
+                        specialRegions
+                    )
+                    : "77"
 
         };
 
@@ -1268,15 +1787,15 @@ function generateNumber(r) {
     return {
 
         main:
-            l1 +
+            first +
             d1 +
             d2 +
             d3 +
-            l1 +
-            l2,
+            l2 +
+            l3,
 
         region:
-            region()
+            randomRegion()
 
     };
 
@@ -1284,10 +1803,94 @@ function generateNumber(r) {
 
 
 /* =========================
-   ПЛАСТИНКА
+   PRICE
 ========================= */
 
-function plateHTML(number) {
+function calculatePrice(
+    number,
+    rarity
+) {
+
+    let price =
+        Math.floor(
+            Math.random() *
+            (
+                rarity.max -
+                rarity.min +
+                1
+            )
+        ) +
+        rarity.min;
+
+
+    const digits =
+        number.main
+            .slice(1,4);
+
+
+    const letters =
+        number.main
+            .charAt(0)
+        +
+        number.main
+            .slice(4,6);
+
+
+    if (
+        new Set(
+            digits.split("")
+        ).size === 1
+    ) {
+
+        price += 10000;
+
+    }
+
+
+    if (
+        new Set(
+            letters.split("")
+        ).size === 1
+    ) {
+
+        price += 10000;
+
+    }
+
+
+    if (
+        [
+            "123",
+            "234",
+            "345",
+            "456",
+            "567",
+            "678",
+            "789",
+            "012"
+
+        ].includes(
+            digits
+        )
+    ) {
+
+        price += 5000;
+
+    }
+
+
+    return price;
+
+}
+
+
+/* =========================
+   PLATE HTML
+========================= */
+
+function plateHTML(
+    number
+) {
 
     return `
 
@@ -1301,7 +1904,7 @@ function plateHTML(number) {
                 ${number.region}
             </div>
 
-            <div class="plate-rus">
+            <div class="plate-country">
 
                 <div class="flag"></div>
 
@@ -1317,161 +1920,220 @@ function plateHTML(number) {
 
 
 /* =========================
-   ГЛАВНАЯ
+   HOME
 ========================= */
 
 function showGame() {
 
-    screen.innerHTML = `
-
-        <div class="title">
-            Лови свой номер 🔥
-        </div>
-
-        <div class="subtitle">
-            Крути номера, собирай редкие
-            комбинации и пополняй коллекцию.
-        </div>
+    let current =
+        currentNumber;
 
 
-        <div class="card">
+    if (
+        !current
+    ) {
 
-            <div class="label">
-                Твой номер
+        current = {
+
+            main: "А123ВС",
+
+            region: "77",
+
+            rarity: RARITIES[0],
+
+            price: 1250
+
+        };
+
+    }
+
+
+    const actionVisible =
+        Boolean(
+            currentNumber
+        );
+
+
+    content.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-title">
+                Лови свой номер
+            </div>
+
+            <div class="page-subtitle">
+                Крути номера и собирай
+                самые редкие комбинации.
+            </div>
+
+
+            <section class="game-card">
+
+                <div class="small-label">
+                    НОМЕР
+                </div>
+
+
+                <div
+                    class="plate-area"
+                    id="plateArea"
+                >
+
+                    ${plateHTML(current)}
+
+                </div>
+
+
+                <div class="meta">
+
+                    <div class="meta-box">
+
+                        <div class="meta-title">
+                            Редкость
+                        </div>
+
+                        <div
+                            class="
+                                meta-value
+                                ${current.rarity.className}
+                            "
+                            id="rarityValue"
+                        >
+
+                            ⭐
+                            ${current.rarity.name}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="meta-box">
+
+                        <div class="meta-title">
+                            Цена
+                        </div>
+
+                        <div
+                            class="
+                                meta-value
+                                price
+                            "
+                            id="priceValue"
+                        >
+
+                            ${money(
+                                current.price
+                            )}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <button
+                class="roll-button"
+                id="rollButton"
+                type="button"
+            >
+                🎰 КРУТИТЬ
+            </button>
+
+
+            <div class="roll-cost">
+                Стоимость крутки:
+                ${money(ROLL_COST)}
             </div>
 
 
             <div
-                class="plate-zone"
-                id="plateZone"
+                class="
+                    result-actions
+                    ${actionVisible ? "" : "hidden"}
+                "
+                id="resultActions"
             >
 
-                ${plateHTML({
+                <button
+                    class="
+                        result-button
+                        take-button
+                    "
+                    id="takeButton"
+                    type="button"
+                >
+                    📦 ЗАБРАТЬ
+                </button>
 
-                    main: "А123ВС",
 
-                    region: "77"
-
-                })}
+                <button
+                    class="
+                        result-button
+                        sell-button
+                    "
+                    id="sellButton"
+                    type="button"
+                >
+                    💵 ПРОДАТЬ
+                </button>
 
             </div>
 
 
-            <div class="info">
-
-                <div class="info-box">
-
-                    <div class="info-name">
-                        Редкость
-                    </div>
-
-                    <div
-                        class="info-value"
-                        id="rarityText"
-                    >
-                        ⭐ Обычный
-                    </div>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <div class="info-name">
-                        Цена
-                    </div>
-
-                    <div
-                        class="info-value green"
-                        id="priceText"
-                    >
-                        1 250 ₽
-                    </div>
-
-                </div>
-
+            <div class="section-title">
+                Действия
             </div>
 
-        </div>
+
+            <div class="quick-grid">
+
+                <button
+                    class="quick-button"
+                    id="storageQuick"
+                    type="button"
+                >
+
+                    <div class="quick-icon">
+                        📦
+                    </div>
+
+                    <div class="quick-title">
+                        Хранилище
+                    </div>
+
+                    <div class="quick-text">
+                        Твоя коллекция номеров
+                    </div>
+
+                </button>
 
 
-        <button
-            class="roll"
-            id="roll"
-        >
-            🎰 КРУТИТЬ
-        </button>
+                <button
+                    class="quick-button"
+                    id="promoQuick"
+                    type="button"
+                >
 
+                    <div class="quick-icon">
+                        🎟
+                    </div>
 
-        <div class="cost">
-            Стоимость крутки: 9 999 ₽
-        </div>
-<div
-    class="result-actions hidden"
-    id="resultActions"
->
+                    <div class="quick-title">
+                        Промокод
+                    </div>
 
-    <button
-        class="take-btn"
-        id="takeButton"
-        type="button"
-    >
-        📦 ЗАБРАТЬ
-    </button>
+                    <div class="quick-text">
+                        Получить бонус
+                    </div>
 
-    <button
-        class="sell-btn"
-        id="sellButton"
-        type="button"
-    >
-        💵 ПРОДАТЬ
-    </button>
+                </button>
 
-</div>
-
-        <div class="section">
-            Быстрые действия
-        </div>
-
-
-        <div class="quick">
-
-            <button
-                id="storageQuick"
-            >
-
-                <div class="quick-icon">
-                    📦
-                </div>
-
-                <div class="quick-title">
-                    Хранилище
-                </div>
-
-                <div class="quick-text">
-                    Смотреть свои номера
-                </div>
-
-            </button>
-
-
-            <button
-                id="promoQuick"
-            >
-
-                <div class="quick-icon">
-                    🎟
-                </div>
-
-                <div class="quick-title">
-                    Промокод
-                </div>
-
-                <div class="quick-text">
-                    Получить бонус
-                </div>
-
-            </button>
+            </div>
 
         </div>
 
@@ -1479,24 +2141,44 @@ function showGame() {
 
 
     document
-        .getElementById("roll")
-        .onclick = roll;
+        .getElementById(
+            "rollButton"
+        )
+        .onclick =
+            roll;
 
 
     document
-        .getElementById("storageQuick")
-        .onclick = () =>
-            navigate("storage");
-document
-    .getElementById("takeButton")
-    .onclick = takeCurrentNumber;
+        .getElementById(
+            "takeButton"
+        )
+        .onclick =
+            takeCurrentNumber;
 
-document
-    .getElementById("sellButton")
-    .onclick = sellCurrentNumber;
 
     document
-        .getElementById("promoQuick")
+        .getElementById(
+            "sellButton"
+        )
+        .onclick =
+            sellCurrentNumber;
+
+
+    document
+        .getElementById(
+            "storageQuick"
+        )
+        .onclick =
+            () =>
+                navigate(
+                    "storage"
+                );
+
+
+    document
+        .getElementById(
+            "promoQuick"
+        )
         .onclick =
             openPromo;
 
@@ -1504,12 +2186,14 @@ document
 
 
 /* =========================
-   КРУТКА
+   ROLL
 ========================= */
 
 function roll() {
 
-    if (balance < 9999) {
+    if (
+        balance < ROLL_COST
+    ) {
 
         showToast(
             "❌ Недостаточно денег"
@@ -1520,23 +2204,27 @@ function roll() {
     }
 
 
-    balance -= 9999;
+    balance -=
+        ROLL_COST;
+
 
     rolls++;
 
 
     updateBalance();
+
     save();
 
 
     const button =
         document.getElementById(
-            "roll"
+            "rollButton"
         );
 
-    const zone =
+
+    const area =
         document.getElementById(
-            "plateZone"
+            "plateArea"
         );
 
 
@@ -1548,88 +2236,122 @@ function roll() {
         "🎰 КРУТИМ...";
 
 
-    let count = 0;
+    let step = 0;
 
 
-    const animation =
+    const timer =
         setInterval(
             () => {
 
-                const fake =
+                const fakeRarity =
+                    RARITIES[
+                        Math.floor(
+                            Math.random() * 3
+                        )
+                    ];
+
+
+                const fakeNumber =
                     generateNumber(
-                        rarities[0]
+                        fakeRarity
                     );
 
-                zone.innerHTML =
-                    plateHTML(fake);
 
-                count++;
+                area.innerHTML =
+                    plateHTML(
+                        fakeNumber
+                    );
 
 
-                if (count >= 10) {
+                step++;
+
+
+                if (
+                    step >= 12
+                ) {
 
                     clearInterval(
-                        animation
+                        timer
                     );
 
 
-                    const r =
-                        rarity();
+                    const rarity =
+                        getRarity();
 
 
-                    const n =
-                        generateNumber(r);
+                    const number =
+                        generateNumber(
+                            rarity
+                        );
 
 
-                    let price =
-                        Math.floor(
-                            Math.random()
-                            *
-                            (
-                                r.max -
-                                r.min +
-                                1
-                            )
-                        )
-                        +
-                        r.min;
+                    const price =
+                        calculatePrice(
+                            number,
+                            rarity
+                        );
 
 
-                    if (
-                        n.main
-                            .slice(1,4)
-                            .split("")
-                            .every(
-                                x =>
-                                    x ===
-                                    n.main[1]
-                            )
-                    ) {
+                    currentNumber = {
 
-                        price += 10000;
+                        main:
+                            number.main,
 
-                    }
+                        region:
+                            number.region,
+
+                        rarity:
+                            rarity,
+
+                        price:
+                            price
+
+                    };
 
 
-                    zone.innerHTML =
-                        plateHTML(n);
+                    area.innerHTML =
+                        plateHTML(
+                            currentNumber
+                        );
 
 
                     document
                         .getElementById(
-                            "rarityText"
+                            "rarityValue"
+                        )
+                        .className =
+                            "meta-value " +
+                            rarity.className;
+
+
+                    document
+                        .getElementById(
+                            "rarityValue"
                         )
                         .textContent =
                             "⭐ " +
-                            r.name;
+                            rarity.name;
 
 
                     document
                         .getElementById(
-                            "priceText"
+                            "priceValue"
                         )
                         .textContent =
                             money(price);
+
+
+                    const actions =
+                        document.getElementById(
+                            "resultActions"
+                        );
+
+
+                    actions
+                        .classList
+                        .remove(
+                            "hidden"
+                        );
 
 
                     button.disabled =
@@ -1639,54 +2361,169 @@ function roll() {
                     button.textContent =
                         "🎰 КРУТИТЬ";
 
-currentNumber = {
-    main: n.main,
-    region: n.region,
-    rarity: r,
-    price: price
-};
-
-const actions = document.getElementById(
-    "resultActions"
-);
-
-if (actions) {
-    actions.classList.remove("hidden");
-}
-
 
                     save();
 
 
                     showToast(
                         "🔥 " +
-                        r.name
+                        rarity.name
                     );
 
                 }
 
             },
-            80
+            75
         );
 
 }
 
 
 /* =========================
-   ХРАНИЛИЩЕ
+   TAKE
+========================= */
+
+function takeCurrentNumber() {
+
+    if (
+        !currentNumber
+    ) {
+
+        showToast(
+            "❌ Нет номера"
+        );
+
+        return;
+
+    }
+
+
+    storage.push({
+
+        main:
+            currentNumber.main,
+
+        region:
+            currentNumber.region,
+
+        rarity:
+            currentNumber.rarity,
+
+        price:
+            currentNumber.price
+
+    });
+
+
+    currentNumber =
+        null;
+
+
+    save();
+
+
+    const actions =
+        document.getElementById(
+            "resultActions"
+        );
+
+
+    if (actions) {
+
+        actions
+            .classList
+            .add(
+                "hidden"
+            );
+
+    }
+
+
+    showToast(
+        "📦 Номер добавлен!"
+    );
+
+}
+
+
+/* =========================
+   SELL CURRENT
+========================= */
+
+function sellCurrentNumber() {
+
+    if (
+        !currentNumber
+    ) {
+
+        showToast(
+            "❌ Нет номера"
+        );
+
+        return;
+
+    }
+
+
+    const price =
+        currentNumber.price;
+
+
+    balance +=
+        price;
+
+
+    currentNumber =
+        null;
+
+
+    save();
+
+    updateBalance();
+
+
+    const actions =
+        document.getElementById(
+            "resultActions"
+        );
+
+
+    if (actions) {
+
+        actions
+            .classList
+            .add(
+                "hidden"
+            );
+
+    }
+
+
+    showToast(
+        "💵 +" +
+        money(price)
+    );
+
+}
+
+
+/* =========================
+   STORAGE
 ========================= */
 
 function showStorage() {
 
     let html = `
 
-        <div class="title">
-            📦 Хранилище
-        </div>
+        <div class="page">
 
-        <div class="subtitle">
-            Номера, которые ты сохранил.
-        </div>
+            <div class="page-title">
+                Хранилище
+            </div>
+
+            <div class="page-subtitle">
+                Здесь хранятся твои номера.
+            </div>
 
     `;
 
@@ -1699,9 +2536,16 @@ function showStorage() {
 
             <div class="empty">
 
-                📦<br><br>
+                <div class="empty-icon">
+                    📦
+                </div>
 
-                Здесь пока пусто.
+                Хранилище пустое.
+
+                <br>
+
+                Крути номер и нажми
+                «Забрать».
 
             </div>
 
@@ -1709,57 +2553,63 @@ function showStorage() {
 
     } else {
 
-        html +=
-            `<div class="list">`;
+        html += `
+            <div class="storage-list">
+        `;
 
 
         storage
             .slice()
             .reverse()
             .forEach(
-                (item,index) => {
+                (item, index) => {
 
                     html += `
 
-                        <div
-                            class="item"
-                        >
+                        <div class="storage-item">
 
                             <div>
 
-                                <div
-                                    class="item-number"
-                                >
+                                <div class="storage-number">
+
                                     ${item.main}
                                     ${item.region}
+
                                 </div>
 
+
                                 <div
-                                    class="item-rarity"
+                                    class="
+                                        storage-rarity
+                                        ${item.rarity.className}
+                                    "
                                 >
+
                                     ⭐
                                     ${item.rarity.name}
+
                                 </div>
 
-                                <div
-                                    class="item-price"
-                                >
+
+                                <div class="storage-price">
+
                                     ${money(
                                         item.price
                                     )}
+
                                 </div>
 
                             </div>
 
+
                             <button
-                                class="sell"
-                                onclick="
-                                    sell(
-                                        ${index}
-                                    )
-                                "
+                                class="storage-sell"
+                                type="button"
+                                data-index="${index}"
                             >
+
                                 💵 Продать
+
                             </button>
 
                         </div>
@@ -1770,64 +2620,87 @@ function showStorage() {
             );
 
 
-        html +=
-            `</div>`;
+        html += `
+            </div>
+        `;
 
     }
 
 
-    screen.innerHTML =
+    html += `
+        </div>
+    `;
+
+
+    content.innerHTML =
         html;
 
+
+    document
+        .querySelectorAll(
+            ".storage-sell"
+        )
+        .forEach(
+            button => {
+
+                button.onclick =
+                    () => {
+
+                        const reversedIndex =
+                            Number(
+                                button.dataset.index
+                            );
+
+
+                        const realIndex =
+                            storage.length -
+                            1 -
+                            reversedIndex;
+
+
+                        const item =
+                            storage[
+                                realIndex
+                            ];
+
+
+                        if (!item) {
+                            return;
+                        }
+
+
+                        balance +=
+                            item.price;
+
+
+                        storage.splice(
+                            realIndex,
+                            1
+                        );
+
+
+                        save();
+
+                        updateBalance();
+
+
+                        showStorage();
+
+
+                        showToast(
+                            "💵 Номер продан"
+                        );
+
+                    };
+
+            }
+        );
+
 }
 
 
 /* =========================
-   ПРОДАЖА
-========================= */
-
-function sell(index) {
-
-    const actual =
-        storage.length -
-        1 -
-        index;
-
-
-    const item =
-        storage[actual];
-
-
-    if (!item)
-        return;
-
-
-    balance +=
-        item.price;
-
-
-    storage.splice(
-        actual,
-        1
-    );
-
-
-    save();
-
-    updateBalance();
-
-    showStorage();
-
-
-    showToast(
-        "💵 Номер продан"
-    );
-
-}
-
-
-/* =========================
-   ТОП
+   TOP
 ========================= */
 
 function showTop() {
@@ -1857,45 +2730,49 @@ function showTop() {
     ];
 
 
-    screen.innerHTML = `
+    content.innerHTML = `
 
-        <div class="title">
-            🏆 Топ игроков
-        </div>
+        <div class="page">
 
-        <div class="subtitle">
-            Самые богатые игроки.
-        </div>
+            <div class="page-title">
+                🏆 Топ
+            </div>
 
-        <div class="top-list">
+            <div class="page-subtitle">
+                Самые богатые игроки.
+            </div>
 
-            ${players
-                .map(
-                    p => `
 
-                    <div class="top-item">
+            <div class="top-list">
 
-                        <div class="top-player">
+                ${players.map(
+                    player => `
 
-                            <div class="top-place">
-                                ${p[0]}
+                        <div class="top-item">
+
+                            <div class="top-left">
+
+                                <div class="top-place">
+                                    ${player[0]}
+                                </div>
+
+                                <div class="top-name">
+                                    ${player[1]}
+                                </div>
+
                             </div>
 
-                            <div>
-                                ${p[1]}
+
+                            <div class="top-money">
+                                ${money(player[2])}
                             </div>
 
                         </div>
 
-                        <div class="top-money">
-                            ${money(p[2])}
-                        </div>
+                    `
+                ).join("")}
 
-                    </div>
-
-                `
-                )
-                .join("")}
+            </div>
 
         </div>
 
@@ -1905,38 +2782,122 @@ function showTop() {
 
 
 /* =========================
-   ПРОФИЛЬ
+   PROFILE
 ========================= */
 
 function showProfile() {
 
-    screen.innerHTML = `
-
-        <div class="title">
-            👤 Профиль
-        </div>
-
-        <div class="subtitle">
-            Твоя статистика.
-        </div>
+    let user =
+        null;
 
 
-        <div class="profile">
+    if (
+        tg &&
+        tg.initDataUnsafe
+    ) {
 
-            <div class="profile-head">
+        user =
+            tg.initDataUnsafe.user;
 
-                <div class="avatar">
-                    👤
-                </div>
+    }
 
-                <div>
 
-                    <div class="profile-name">
-                        Игрок
+    const name =
+        user &&
+        user.first_name
+            ? user.first_name
+            : "Игрок";
+
+
+    const username =
+        user &&
+        user.username
+            ? "@" +
+              user.username
+            : "Telegram";
+
+
+    const avatarLetter =
+        name
+            .charAt(0)
+            .toUpperCase();
+
+
+    content.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-title">
+                👤 Профиль
+            </div>
+
+            <div class="page-subtitle">
+                Твоя статистика в «Номера РФ».
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-head">
+
+                    <div class="avatar">
+                        ${avatarLetter}
                     </div>
 
-                    <div class="profile-user">
-                        Telegram
+
+                    <div>
+
+                        <div class="profile-name">
+                            ${name}
+                        </div>
+
+                        <div class="profile-username">
+                            ${username}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <div class="stat-value">
+                            ${rolls}
+                        </div>
+
+                        <div class="stat-name">
+                            Круток
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-value">
+                            ${storage.length}
+                        </div>
+
+                        <div class="stat-name">
+                            Номеров
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-value">
+                            ${money(balance)}
+                        </div>
+
+                        <div class="stat-name">
+                            Баланс
+                        </div>
+
                     </div>
 
                 </div>
@@ -1944,73 +2905,34 @@ function showProfile() {
             </div>
 
 
-            <div class="stats">
-
-                <div class="stat">
-
-                    <div class="stat-value">
-                        ${rolls}
-                    </div>
-
-                    <div class="stat-name">
-                        Круток
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-value">
-                        ${storage.length}
-                    </div>
-
-                    <div class="stat-name">
-                        Номеров
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-value">
-                        ${money(balance)}
-                    </div>
-
-                    <div class="stat-name">
-                        Баланс
-                    </div>
-
-                </div>
-
+            <div class="section-title">
+                Дополнительно
             </div>
 
-        </div>
 
+            <div class="quick-grid">
 
-        <div class="section">
-            Дополнительно
-        </div>
+                <button
+                    class="quick-button"
+                    id="profilePromo"
+                    type="button"
+                >
 
+                    <div class="quick-icon">
+                        🎟
+                    </div>
 
-        <div class="quick">
+                    <div class="quick-title">
+                        Промокод
+                    </div>
 
-            <button id="profilePromo">
+                    <div class="quick-text">
+                        Активировать бонусный код
+                    </div>
 
-                <div class="quick-icon">
-                    🎟
-                </div>
+                </button>
 
-                <div class="quick-title">
-                    Промокод
-                </div>
-
-                <div class="quick-text">
-                    Активировать код
-                </div>
-
-            </button>
+            </div>
 
         </div>
 
@@ -2028,56 +2950,90 @@ function showProfile() {
 
 
 /* =========================
-   НАВИГАЦИЯ
+   NAVIGATION
 ========================= */
 
 function navigate(page) {
 
     document
-        .querySelectorAll(".nav")
+        .querySelectorAll(
+            ".nav-button"
+        )
         .forEach(
             button => {
 
                 button.classList.toggle(
                     "active",
-                    button.dataset.page ===
-                    page
+                    button.dataset.page === page
                 );
 
             }
         );
 
 
-    if (page === "game")
+    if (
+        page === "game"
+    ) {
+
         showGame();
 
+    }
 
-    if (page === "storage")
+
+    if (
+        page === "storage"
+    ) {
+
         showStorage();
 
+    }
 
-    if (page === "top")
+
+    if (
+        page === "top"
+    ) {
+
         showTop();
 
+    }
 
-    if (page === "profile")
+
+    if (
+        page === "profile"
+    ) {
+
         showProfile();
+
+    }
 
 }
 
 
 /* =========================
-   ПРОМО
+   PROMO
 ========================= */
 
 function openPromo() {
 
     promoModal
         .classList
-        .remove("hidden");
+        .remove(
+            "hidden"
+        );
 
-    promoInput
-        .focus();
+
+    promoInput.value =
+        "";
+
+
+    setTimeout(
+        () => {
+
+            promoInput.focus();
+
+        },
+        50
+    );
 
 }
 
@@ -2086,7 +3042,9 @@ function closePromo() {
 
     promoModal
         .classList
-        .add("hidden");
+        .add(
+            "hidden"
+        );
 
 }
 
@@ -2100,7 +3058,7 @@ function usePromo() {
 
 
     if (
-        !promos[code]
+        !PROMOS[code]
     ) {
 
         showToast(
@@ -2113,8 +3071,9 @@ function usePromo() {
 
 
     if (
-        usedPromos
-            .includes(code)
+        usedPromos.includes(
+            code
+        )
     ) {
 
         showToast(
@@ -2126,8 +3085,12 @@ function usePromo() {
     }
 
 
+    const bonus =
+        PROMOS[code];
+
+
     balance +=
-        promos[code];
+        bonus;
 
 
     usedPromos.push(
@@ -2143,60 +3106,32 @@ function usePromo() {
 
 
     showToast(
-        "🎉 Бонус получен!"
+        "🎉 +" +
+        money(bonus)
     );
 
 }
 
 
 /* =========================
-   УВЕДОМЛЕНИЕ
-========================= */
-
-function showToast(text) {
-
-    toast.textContent =
-        text;
-
-    toast.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        window.toastTimer
-    );
-
-
-    window.toastTimer =
-        setTimeout(
-            () => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            2200
-        );
-
-}
-
-
-/* =========================
-   КНОПКИ
+   TOP BUTTONS
 ========================= */
 
 document
-    .querySelectorAll(".nav")
+    .querySelectorAll(
+        ".nav-button"
+    )
     .forEach(
         button => {
 
             button.onclick =
-                () =>
+                () => {
+
                     navigate(
                         button.dataset.page
                     );
+
+                };
 
         }
     );
@@ -2207,16 +3142,19 @@ document
         "balanceButton"
     )
     .onclick =
-        () =>
+        () => {
+
             showToast(
                 "💰 " +
                 money(balance)
             );
 
+        };
+
 
 document
     .getElementById(
-        "modalBg"
+        "promoBackground"
     )
     .onclick =
         closePromo;
@@ -2224,7 +3162,7 @@ document
 
 document
     .getElementById(
-        "modalClose"
+        "promoClose"
     )
     .onclick =
         closePromo;
@@ -2238,88 +3176,60 @@ document
         usePromo;
 
 
-/* ЗАПУСК */
+promoInput
+    .addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key ===
+                "Enter"
+            ) {
+
+                usePromo();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   USER
+========================= */
+
+if (
+    tg &&
+    tg.initDataUnsafe &&
+    tg.initDataUnsafe.user
+) {
+
+    const user =
+        tg.initDataUnsafe.user;
+
+
+    if (
+        user.first_name
+    ) {
+
+        userGreeting.textContent =
+            "Привет, " +
+            user.first_name +
+            "!";
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
 
 updateBalance();
 
 showGame();
-function takeCurrentNumber() {
 
-    if (!currentNumber) {
-        showToast("❌ Сначала крутань номер");
-        return;
-    }
-
-    storage.push({
-        main: currentNumber.main,
-        region: currentNumber.region,
-        rarity: currentNumber.rarity,
-        price: currentNumber.price
-    });
-
-    currentNumber = null;
-
-    save();
-    updateBalance();
-
-    const actions = document.getElementById(
-        "resultActions"
-    );
-
-    if (actions) {
-        actions.classList.add("hidden");
-    }
-
-    showToast(
-        "📦 Номер добавлен в хранилище!"
-    );
-}
-
-
-function sellCurrentNumber() {
-
-    if (!currentNumber) {
-        showToast("❌ Нет номера для продажи");
-        return;
-    }
-
-    balance += currentNumber.price;
-
-    const soldPrice = currentNumber.price;
-
-    currentNumber = null;
-
-    save();
-    updateBalance();
-
-    const actions = document.getElementById(
-        "resultActions"
-    );
-
-    if (actions) {
-        actions.classList.add("hidden");
-    }
-
-    showToast(
-        "💵 Продано за " + money(soldPrice)
-    );
-}
-
-
-document
-    .getElementById("takeButton")
-    .addEventListener(
-        "click",
-        takeCurrentNumber
-    );
-
-
-document
-    .getElementById("sellButton")
-    .addEventListener(
-        "click",
-        sellCurrentNumber
-    );
 </script>
 
 </body>
